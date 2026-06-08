@@ -1,0 +1,3036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greece 2026 — Private Travel Dossier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0A1628;
+    --navy-mid: #112240;
+    --sand: #E8DCC8;
+    --sand-light: #F5F0E8;
+    --gold: #C9A84C;
+    --gold-light: #E2C97E;
+    --white: #FFFFFF;
+    --text: #1A1A2E;
+    --text-muted: #6B7280;
+    --border: rgba(201,168,76,0.25);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── STICKY NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(10,22,40,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 500; letter-spacing: 0.15em;
+    color: var(--gold); text-transform: uppercase; text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(255,255,255,0.7);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--navy) !important;
+    padding: 8px 18px; border-radius: 2px; font-weight: 600 !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    height: 100vh; position: relative;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1800&q=85');
+    background-size: cover; background-position: center 40%;
+    transform: scale(1.05);
+    transition: transform 8s ease;
+  }
+  .hero-bg::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(10,22,40,0.3) 0%, rgba(10,22,40,0.65) 60%, rgba(10,22,40,0.95) 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    text-align: center; max-width: 900px; padding: 0 40px;
+  }
+  .hero-eyebrow {
+    font-family: 'Inter', sans-serif; font-size: 0.68rem;
+    font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px;
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ''; width: 40px; height: 1px; background: var(--gold); opacity: 0.6;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 300; line-height: 1.0;
+    letter-spacing: -0.01em; margin-bottom: 28px;
+  }
+  .hero-title em { font-style: italic; color: var(--gold-light); }
+  .hero-sub {
+    font-size: 0.95rem; font-weight: 300; letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 48px;
+  }
+  .hero-meta {
+    display: flex; gap: 48px; justify-content: center; flex-wrap: wrap;
+  }
+  .hero-meta-item { text-align: center; }
+  .hero-meta-item .val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 400; color: var(--gold-light);
+    display: block;
+  }
+  .hero-meta-item .lbl {
+    font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: rgba(255,255,255,0.5);
+  }
+  .scroll-cue {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.4); font-size: 0.6rem; letter-spacing: 0.2em;
+    text-transform: uppercase; animation: bounce 2s infinite;
+  }
+  .scroll-cue svg { width: 20px; opacity: 0.4; }
+  @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+  /* ── TRIP OVERVIEW ── */
+  .overview {
+    background: var(--navy-mid);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 40px;
+  }
+  .overview-inner { max-width: 1200px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300;
+    line-height: 1.15; margin-bottom: 48px;
+  }
+  .section-title em { font-style: italic; color: var(--gold-light); }
+
+  .overview-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px; border: 1px solid var(--border);
+  }
+  .overview-card {
+    background: rgba(255,255,255,0.03);
+    padding: 36px 32px;
+    border-right: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+  .overview-card:last-child { border-right: none; }
+  .overview-card:hover { background: rgba(201,168,76,0.05); }
+  .overview-card-label {
+    font-size: 0.6rem; font-weight: 600; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+  }
+  .overview-card-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 400; color: var(--white);
+    margin-bottom: 6px; line-height: 1.3;
+  }
+  .overview-card-sub { font-size: 0.78rem; color: rgba(255,255,255,0.45); line-height: 1.5; }
+
+  .flight-strip {
+    margin-top: 40px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.02);
+    padding: 28px 32px;
+    display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+    align-items: center; gap: 20px;
+  }
+  .flight-node { text-align: center; }
+  .flight-node .code {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 300; color: var(--gold-light);
+    display: block; letter-spacing: 0.05em;
+  }
+  .flight-node .name { font-size: 0.62rem; color: rgba(255,255,255,0.4); letter-spacing: 0.15em; text-transform: uppercase; }
+  .flight-arrow {
+    text-align: center; color: var(--gold); opacity: 0.5; font-size: 1.2rem;
+  }
+  .flight-info { text-align: center; }
+  .flight-info .carrier {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+    color: var(--white); text-transform: uppercase;
+  }
+  .flight-info .detail { font-size: 0.62rem; color: rgba(255,255,255,0.4); margin-top: 4px; }
+
+  /* ── HOTEL STRIP ── */
+  .hotel-strip {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    margin-top: 2px;
+  }
+  .hotel-card {
+    position: relative; height: 320px; overflow: hidden; cursor: pointer;
+  }
+  .hotel-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .hotel-card:hover img { transform: scale(1.05); }
+  .hotel-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,22,40,0.92) 0%, rgba(10,22,40,0.2) 60%, transparent 100%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 28px;
+  }
+  .hotel-card-dest {
+    font-size: 0.6rem; font-weight: 600; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 6px;
+  }
+  .hotel-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 400; line-height: 1.1; margin-bottom: 8px;
+  }
+  .hotel-card-detail { font-size: 0.72rem; color: rgba(255,255,255,0.55); }
+  .hotel-badge {
+    position: absolute; top: 20px; right: 20px;
+    background: var(--gold); color: var(--navy);
+    font-size: 0.58rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; padding: 4px 10px;
+  }
+
+  /* ── DESTINATION SECTIONS ── */
+  .dest-hero {
+    height: 70vh; position: relative;
+    display: flex; align-items: flex-end; padding: 60px;
+    overflow: hidden;
+  }
+  .dest-hero-bg {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+  }
+  .dest-hero-bg::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(10,22,40,0.85) 0%, rgba(10,22,40,0.3) 60%, transparent 100%);
+  }
+  .dest-hero-content { position: relative; z-index: 2; max-width: 600px; }
+  .dest-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 8rem; font-weight: 300;
+    color: rgba(201,168,76,0.15); line-height: 1;
+    position: absolute; top: 40px; right: 60px; z-index: 2;
+    font-style: italic;
+  }
+  .dest-label {
+    font-size: 0.62rem; font-weight: 600; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+  }
+  .dest-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 300;
+    line-height: 1.0; margin-bottom: 20px;
+  }
+  .dest-desc { font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.75; max-width: 480px; }
+  .dest-stats {
+    display: flex; gap: 32px; margin-top: 28px;
+  }
+  .dest-stat .n {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; color: var(--gold-light); display: block;
+  }
+  .dest-stat .l { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+  /* ── CONTENT SECTIONS ── */
+  .content-section {
+    padding: 80px 40px;
+    max-width: 1300px; margin: 0 auto;
+  }
+  .section-header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 40px; padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-header-left {}
+  .section-header-right {
+    font-size: 0.7rem; color: rgba(255,255,255,0.35);
+    letter-spacing: 0.1em; text-transform: uppercase; padding-bottom: 4px;
+  }
+
+  /* ── ACTIVITY / DINING CARDS ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+  }
+  .option-card {
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.02);
+    overflow: hidden; position: relative;
+    transition: border-color 0.25s, background 0.25s, transform 0.2s;
+    cursor: pointer;
+  }
+  .option-card:hover {
+    border-color: rgba(201,168,76,0.5);
+    background: rgba(201,168,76,0.04);
+    transform: translateY(-2px);
+  }
+  .option-card.selected {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.08);
+  }
+  .option-card.selected::before {
+    content: '✓ SELECTED';
+    position: absolute; top: 12px; right: 12px; z-index: 10;
+    background: var(--gold); color: var(--navy);
+    font-size: 0.55rem; font-weight: 700; letter-spacing: 0.15em;
+    padding: 4px 8px;
+  }
+  .card-img {
+    width: 100%; height: 220px; object-fit: cover;
+    display: block; transition: transform 0.5s;
+  }
+  .option-card:hover .card-img { transform: scale(1.03); }
+  .card-img-wrap { overflow: hidden; position: relative; }
+  .card-code {
+    position: absolute; bottom: 12px; left: 12px;
+    background: var(--navy); color: var(--gold);
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em;
+    padding: 4px 10px; font-family: 'Inter', sans-serif;
+  }
+  .card-body { padding: 20px 22px 22px; }
+  .card-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+  .tag {
+    font-size: 0.58rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 3px 9px;
+    border: 1px solid var(--border); color: rgba(255,255,255,0.45);
+  }
+  .tag.type-water { border-color: rgba(64,160,210,0.4); color: rgba(100,190,240,0.8); }
+  .tag.type-culture { border-color: rgba(201,168,76,0.4); color: rgba(201,168,76,0.8); }
+  .tag.type-scenic { border-color: rgba(100,200,150,0.4); color: rgba(100,200,150,0.8); }
+  .tag.type-food { border-color: rgba(220,120,80,0.4); color: rgba(220,120,80,0.8); }
+  .tag.type-adventure { border-color: rgba(200,100,100,0.4); color: rgba(220,140,140,0.8); }
+  .tag.type-beach { border-color: rgba(100,180,220,0.4); color: rgba(140,200,230,0.8); }
+  .tag.type-drink { border-color: rgba(180,120,200,0.4); color: rgba(200,150,220,0.8); }
+  .card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 400; margin-bottom: 8px;
+    line-height: 1.25;
+  }
+  .card-note {
+    font-size: 0.78rem; color: rgba(255,255,255,0.5);
+    line-height: 1.6; margin-bottom: 14px;
+  }
+  .card-meta {
+    display: flex; gap: 16px; align-items: center;
+    padding-top: 14px; border-top: 1px solid var(--border);
+  }
+  .card-meta-item {
+    font-size: 0.62rem; color: rgba(255,255,255,0.4);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .card-meta-item svg { opacity: 0.5; }
+
+  /* ── DINING CARDS specific ── */
+  .michelin-badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: rgba(220,50,50,0.15); border: 1px solid rgba(220,50,50,0.3);
+    color: #FF8A8A; font-size: 0.58rem; font-weight: 600;
+    letter-spacing: 0.1em; padding: 3px 9px; text-transform: uppercase;
+  }
+  .price-level {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; color: var(--gold-light); letter-spacing: 0.05em;
+  }
+
+  /* ── DAY BUILDER ── */
+  .day-builder-section {
+    background: var(--navy-mid);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 40px;
+  }
+  .day-builder-inner { max-width: 1200px; margin: 0 auto; }
+  .dest-tabs {
+    display: flex; gap: 4px; margin-bottom: 48px;
+    border-bottom: 1px solid var(--border); padding-bottom: 0;
+  }
+  .dest-tab {
+    padding: 14px 28px; cursor: pointer;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: rgba(255,255,255,0.4);
+    border-bottom: 2px solid transparent; transition: all 0.2s;
+    margin-bottom: -1px; background: none; border-top: none;
+    border-left: none; border-right: none;
+  }
+  .dest-tab:hover { color: rgba(255,255,255,0.7); }
+  .dest-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  .day-panel { display: none; }
+  .day-panel.active { display: block; }
+
+  .day-row {
+    display: grid; grid-template-columns: 140px 1fr;
+    gap: 0; margin-bottom: 2px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.02);
+  }
+  .day-row-label {
+    background: rgba(201,168,76,0.06);
+    border-right: 1px solid var(--border);
+    padding: 20px 24px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .day-row-label .slot-time {
+    font-size: 0.6rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 4px;
+  }
+  .day-row-label .slot-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; color: rgba(255,255,255,0.7);
+  }
+  .day-row-options {
+    padding: 16px 24px;
+    display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  }
+  .builder-btn {
+    padding: 8px 16px; cursor: pointer;
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.65);
+    transition: all 0.2s; white-space: nowrap;
+    font-family: 'Inter', sans-serif;
+  }
+  .builder-btn:hover {
+    border-color: rgba(201,168,76,0.5);
+    color: var(--white); background: rgba(201,168,76,0.06);
+  }
+  .builder-btn.chosen {
+    background: var(--gold); color: var(--navy);
+    border-color: var(--gold); font-weight: 700;
+  }
+  .builder-btn .btn-code {
+    opacity: 0.6; margin-right: 6px; font-weight: 400;
+  }
+  .builder-btn.chosen .btn-code { opacity: 0.7; }
+  .or-divider {
+    font-size: 0.58rem; color: rgba(255,255,255,0.2);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0 2px;
+  }
+  .day-header {
+    display: flex; align-items: center; gap: 20px;
+    margin-bottom: 24px; padding: 20px 24px;
+    background: rgba(201,168,76,0.06);
+    border: 1px solid var(--border);
+  }
+  .day-header-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 300; color: var(--gold-light);
+    line-height: 1; font-style: italic; min-width: 60px;
+  }
+  .day-header-info {}
+  .day-header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; margin-bottom: 4px;
+  }
+  .day-header-date { font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; }
+  .day-separator { height: 32px; }
+
+  /* ── ITINERARY SUMMARY ── */
+  .summary-box {
+    margin-top: 40px; padding: 28px 32px;
+    border: 1px solid var(--gold);
+    background: rgba(201,168,76,0.04);
+  }
+  .summary-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; color: var(--gold-light);
+    margin-bottom: 16px; font-style: italic;
+  }
+  .summary-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .summary-list li {
+    font-size: 0.78rem; color: rgba(255,255,255,0.65);
+    display: flex; align-items: flex-start; gap: 12px; line-height: 1.5;
+  }
+  .summary-list li .sum-day {
+    font-weight: 600; color: var(--gold); min-width: 55px;
+    font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase;
+    padding-top: 1px;
+  }
+  .print-btn {
+    margin-top: 20px; padding: 12px 28px; cursor: pointer;
+    background: transparent; border: 1px solid var(--gold);
+    color: var(--gold); font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    font-family: 'Inter', sans-serif; transition: all 0.2s;
+  }
+  .print-btn:hover { background: var(--gold); color: var(--navy); }
+
+  /* ── LOGISTICS ── */
+  .logistics-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    margin-top: 40px;
+  }
+  .logistics-card {
+    border: 1px solid var(--border);
+    padding: 28px 28px;
+    background: rgba(255,255,255,0.02);
+  }
+  .logistics-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; margin-bottom: 16px;
+    color: var(--gold-light);
+  }
+  .logistics-row {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+    gap: 20px;
+  }
+  .logistics-row:last-child { border-bottom: none; }
+  .logistics-row .lk { font-size: 0.7rem; color: rgba(255,255,255,0.4); letter-spacing: 0.05em; flex-shrink: 0; }
+  .logistics-row .lv { font-size: 0.78rem; color: var(--white); text-align: right; line-height: 1.4; }
+  .flag-item {
+    display: flex; gap: 10px; align-items: flex-start;
+    padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .flag-item:last-child { border-bottom: none; }
+  .flag-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold); margin-top: 5px; flex-shrink: 0;
+  }
+  .flag-text { font-size: 0.78rem; color: rgba(255,255,255,0.6); line-height: 1.55; }
+  .flag-text strong { color: var(--white); }
+
+  /* ── DIVIDER ── */
+  .gold-divider {
+    height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent);
+    opacity: 0.3; margin: 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: rgba(0,0,0,0.4);
+    border-top: 1px solid var(--border);
+    padding: 48px 40px;
+    text-align: center;
+  }
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 12px;
+  }
+  .footer-text { font-size: 0.72rem; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; }
+
+  /* ── BOOKING TIPS ── */
+  .tip-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 0; }
+  .tip-card {
+    background: rgba(255,255,255,0.02); border: 1px solid var(--border);
+    padding: 28px 24px;
+  }
+  .tip-icon { font-size: 1.5rem; margin-bottom: 12px; }
+  .tip-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; margin-bottom: 10px; color: var(--white);
+  }
+  .tip-text { font-size: 0.75rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+  .tip-text strong { color: rgba(255,255,255,0.8); }
+
+  /* IMAGE GALLERIES */
+  .img-scroll {
+    display: flex; gap: 16px; overflow-x: auto;
+    padding-bottom: 12px; margin-top: 32px;
+    scrollbar-width: thin; scrollbar-color: var(--gold) transparent;
+  }
+  .img-scroll::-webkit-scrollbar { height: 3px; }
+  .img-scroll::-webkit-scrollbar-thumb { background: var(--gold); }
+  .img-scroll img {
+    height: 220px; width: auto; min-width: 300px;
+    object-fit: cover; flex-shrink: 0;
+    border: 1px solid var(--border);
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { gap: 16px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero-content { padding: 0 20px; }
+    .overview-grid { grid-template-columns: 1fr; }
+    .overview-card { border-right: none; border-bottom: 1px solid var(--border); }
+    .hotel-strip { grid-template-columns: 1fr; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .day-row { grid-template-columns: 1fr; }
+    .day-row-label { border-right: none; border-bottom: 1px solid var(--border); }
+    .logistics-grid { grid-template-columns: 1fr; }
+    .tip-grid { grid-template-columns: 1fr; }
+    .flight-strip { grid-template-columns: 1fr; gap: 12px; }
+    .dest-hero { padding: 30px; height: 55vh; }
+    .content-section { padding: 48px 20px; }
+    .day-builder-section { padding: 48px 20px; }
+    .overview { padding: 48px 20px; }
+    .map-layout { flex-direction: column; }
+    .map-sidebar { width: 100%; max-height: 360px; }
+    .map-svg-wrap { min-height: 320px; }
+    .location-detail-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── MAP SECTION ── */
+  .map-section {
+    background: var(--navy-mid);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 40px;
+  }
+  .map-inner { max-width: 1300px; margin: 0 auto; }
+  .map-layout {
+    display: flex; gap: 32px; margin-top: 40px; align-items: flex-start;
+  }
+  .map-svg-wrap {
+    flex: 1; min-height: 580px; position: relative;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .map-bg-img {
+    width: 100%; height: 100%; object-fit: cover; opacity: 0.18;
+    position: absolute; inset: 0;
+  }
+  .map-svg {
+    width: 100%; height: 100%; position: absolute; inset: 0;
+  }
+
+  /* Location pins */
+  .map-pin {
+    cursor: pointer; transition: transform 0.2s;
+    transform-origin: center bottom;
+  }
+  .map-pin:hover { transform: scale(1.25); }
+  .map-pin.active .pin-circle { fill: var(--gold); }
+  .map-pin.active .pin-ring { stroke: var(--gold-light); }
+  .pin-circle { transition: fill 0.2s; }
+  .pin-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; pointer-events: none;
+  }
+
+  /* Route line */
+  .route-line {
+    fill: none; stroke: var(--gold); stroke-width: 1.5;
+    stroke-dasharray: 6 4; opacity: 0.4;
+    animation: dashMove 20s linear infinite;
+  }
+  @keyframes dashMove { to { stroke-dashoffset: -200; } }
+
+  /* Sidebar */
+  .map-sidebar {
+    width: 380px; flex-shrink: 0;
+    display: flex; flex-direction: column; gap: 12px;
+    max-height: 620px; overflow-y: auto;
+    scrollbar-width: thin; scrollbar-color: var(--gold) transparent;
+    padding-right: 4px;
+  }
+  .map-sidebar::-webkit-scrollbar { width: 3px; }
+  .map-sidebar::-webkit-scrollbar-thumb { background: var(--gold); }
+
+  .map-card {
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.02);
+    cursor: pointer; transition: all 0.2s; overflow: hidden;
+    display: flex; gap: 0; flex-direction: column;
+  }
+  .map-card:hover { border-color: rgba(201,168,76,0.5); background: rgba(201,168,76,0.04); }
+  .map-card.active { border-color: var(--gold); background: rgba(201,168,76,0.07); }
+  .map-card-img {
+    width: 100%; height: 160px; object-fit: cover; display: block;
+    transition: transform 0.4s;
+  }
+  .map-card:hover .map-card-img { transform: scale(1.04); }
+  .map-card-img-wrap { overflow: hidden; position: relative; }
+  .map-card-badge {
+    position: absolute; bottom: 10px; left: 10px;
+    background: var(--navy); color: var(--gold);
+    font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em;
+    padding: 3px 9px; text-transform: uppercase;
+  }
+  .map-card-body { padding: 14px 16px; }
+  .map-card-dest {
+    font-size: 0.58rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 4px;
+  }
+  .map-card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 400; margin-bottom: 6px; line-height: 1.2;
+  }
+  .map-card-desc {
+    font-size: 0.72rem; color: rgba(255,255,255,0.5);
+    line-height: 1.55; display: -webkit-box;
+    -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .map-card-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 10px; font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); text-decoration: none; transition: gap 0.2s;
+  }
+  .map-card-link:hover { gap: 10px; color: var(--gold-light); }
+
+  /* Location Detail Panel */
+  .location-detail {
+    display: none;
+    margin-top: 32px; border: 1px solid var(--gold);
+    background: rgba(201,168,76,0.04);
+    overflow: hidden;
+  }
+  .location-detail.visible { display: block; }
+  .location-detail-hero {
+    width: 100%; height: 340px; object-fit: cover; display: block;
+  }
+  .location-detail-inner { padding: 36px 40px; }
+  .location-detail-back {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold);
+    text-decoration: none; cursor: pointer; margin-bottom: 20px;
+    background: none; border: none; transition: gap 0.2s;
+  }
+  .location-detail-back:hover { gap: 12px; color: var(--gold-light); }
+  .location-detail-eyebrow {
+    font-size: 0.62rem; font-weight: 600; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
+  }
+  .location-detail-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; font-weight: 300; margin-bottom: 16px; line-height: 1.1;
+  }
+  .location-detail-desc {
+    font-size: 0.88rem; color: rgba(255,255,255,0.65);
+    line-height: 1.8; margin-bottom: 24px; max-width: 780px;
+  }
+  .location-detail-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px; margin-bottom: 28px;
+  }
+  .location-detail-stat {
+    background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+    padding: 16px 18px;
+  }
+  .location-detail-stat .ds-label {
+    font-size: 0.58rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 6px;
+  }
+  .location-detail-stat .ds-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; color: var(--white);
+  }
+  .location-detail-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 24px; background: transparent;
+    border: 1px solid var(--gold); color: var(--gold);
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; text-decoration: none;
+    transition: all 0.2s; cursor: pointer;
+  }
+  .location-detail-cta:hover { background: var(--gold); color: var(--navy); }
+
+  /* Pin number badges */
+  .pin-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 8px; font-weight: 800; fill: var(--navy);
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#top">Greece 2026</a>
+  <div class="nav-links">
+    <a href="#overview">Overview</a>
+    <a href="#map">Map</a>
+    <a href="#athens">Athens</a>
+    <a href="#milos">Milos</a>
+    <a href="#paros">Paros</a>
+    <a href="#builder">Day Builder</a>
+    <a href="#logistics">Logistics</a>
+    <a href="#builder" class="nav-cta">Build Itinerary</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Private Travel Dossier · August 2026</div>
+    <h1 class="hero-title">Greece,<br><em>Elevated.</em></h1>
+    <p class="hero-sub">Athens · Milos · Paros — 8 nights, 4 travellers<br>Ultra-luxury, curated from first principles.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><span class="val">Aug 21</span><span class="lbl">Depart Dallas</span></div>
+      <div class="hero-meta-item"><span class="val">8</span><span class="lbl">Nights</span></div>
+      <div class="hero-meta-item"><span class="val">3</span><span class="lbl">Destinations</span></div>
+      <div class="hero-meta-item"><span class="val">Aug 29</span><span class="lbl">Return</span></div>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 9l-7 7-7-7"/></svg>
+    Scroll
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="overview" id="overview">
+  <div class="overview-inner">
+    <div class="section-eyebrow">Trip at a Glance</div>
+    <h2 class="section-title">Your <em>Private Itinerary</em></h2>
+
+    <div class="overview-grid">
+      <div class="overview-card">
+        <div class="overview-card-label">Flights</div>
+        <div class="overview-card-value">AA Flagship Business</div>
+        <div class="overview-card-sub">DFW → ATH nonstop · Aug 21 evening<br>ATH → DFW nonstop · Aug 29 morning<br>Inter-island: Sky Express + SeaJets</div>
+      </div>
+      <div class="overview-card">
+        <div class="overview-card-label">Accommodation</div>
+        <div class="overview-card-value">3 Ultra-Luxury Properties</div>
+        <div class="overview-card-sub">Grande Bretagne, Athens (2 nights)<br>Eréma, Milos (3 nights)<br>Parīlio, Paros (2 nights)</div>
+      </div>
+      <div class="overview-card">
+        <div class="overview-card-label">Booking</div>
+        <div class="overview-card-value">Amex FHR + Platinum</div>
+        <div class="overview-card-sub">Book all hotels via Fine Hotels + Resorts<br>Daily breakfast, $100 credit, late checkout<br>Verify Eréma FHR status with Amex Concierge</div>
+      </div>
+      <div class="overview-card">
+        <div class="overview-card-label">Athens</div>
+        <div class="overview-card-value">Sat Aug 22 – Mon Aug 24</div>
+        <div class="overview-card-sub">2 nights · City-center base<br>Acropolis, Plaka, Michelin dining<br>Recovery buffer after overnight flight</div>
+      </div>
+      <div class="overview-card">
+        <div class="overview-card-label">Milos</div>
+        <div class="overview-card-value">Mon Aug 25 – Thu Aug 28</div>
+        <div class="overview-card-sub">3 nights · Eréma Milos<br>Private boat · Village loops · Sunsets<br>Fly ATH → MLO ~45 min via Sky Express</div>
+      </div>
+      <div class="overview-card">
+        <div class="overview-card-label">Paros</div>
+        <div class="overview-card-value">Thu Aug 28 – Sat Aug 29</div>
+        <div class="overview-card-sub">2 nights · Parīlio, Naoussa<br>Moped day · Beach clubs · Naoussa harbor<br>SeaJets ferry MLO → PAR ~2.5 hrs</div>
+      </div>
+    </div>
+
+    <!-- FLIGHT STRIP -->
+    <div class="flight-strip">
+      <div class="flight-node"><span class="code">DFW</span><span class="name">Dallas</span></div>
+      <div class="flight-arrow">→</div>
+      <div class="flight-info"><div class="carrier">AA Flagship Business</div><div class="detail">Nonstop · ~11 hrs · Aug 21 eve</div></div>
+      <div class="flight-arrow">→</div>
+      <div class="flight-node"><span class="code">ATH</span><span class="name">Athens</span></div>
+      <div class="flight-arrow">→</div>
+      <div class="flight-info"><div class="carrier">Sky Express</div><div class="detail">ATH → MLO · ~45 min</div></div>
+      <div class="flight-arrow">→</div>
+      <div class="flight-node"><span class="code">MLO</span><span class="name">Milos</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOTELS -->
+<div class="hotel-strip">
+  <div class="hotel-card">
+    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80" alt="Grande Bretagne Athens">
+    <div class="hotel-card-overlay">
+      <div class="hotel-card-dest">Athens · 2 Nights</div>
+      <div class="hotel-card-name">Hotel Grande Bretagne</div>
+      <div class="hotel-card-detail">Syntagma Square · Est. 1874 · Acropolis Views · Butler Service</div>
+    </div>
+    <div class="hotel-badge">FHR</div>
+  </div>
+  <div class="hotel-card">
+    <img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=800&q=80" alt="Eréma Milos">
+    <div class="hotel-card-overlay">
+      <div class="hotel-card-dest">Milos · 3 Nights</div>
+      <div class="hotel-card-name">Eréma Milos</div>
+      <div class="hotel-card-detail">41 Private-Pool Suites · Provatas Beach · Design Hotels · Opening 2026</div>
+    </div>
+    <div class="hotel-badge">Verify FHR</div>
+  </div>
+  <div class="hotel-card">
+    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Parilio Paros">
+    <div class="hotel-card-overlay">
+      <div class="hotel-card-dest">Paros · 2 Nights</div>
+      <div class="hotel-card-name">Parīlio</div>
+      <div class="hotel-card-detail">Naoussa Bay · 46 Suites · Design Hotels · Chef Thanos Feskos</div>
+    </div>
+    <div class="hotel-badge">FHR</div>
+  </div>
+</div>
+
+<div class="gold-divider"></div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- INTERACTIVE MAP -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="map" class="map-section">
+  <div class="map-inner">
+    <div class="section-eyebrow">Destination Map</div>
+    <h2 class="section-title">The <em>Route</em></h2>
+    <p style="font-size:0.85rem;color:rgba(255,255,255,0.4);margin-top:-20px;margin-bottom:0;line-height:1.6;">Click any pin or card to explore the destination in detail.</p>
+
+    <div class="map-layout">
+
+      <!-- SVG MAP -->
+      <div class="map-svg-wrap">
+        <img class="map-bg-img" src="https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=1200&q=60" alt="Aegean map bg" style="object-position: center 40%;">
+        <svg class="map-svg" viewBox="0 0 700 580" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+
+          <!-- Subtle grid -->
+          <defs>
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(201,168,76,0.06)" stroke-width="0.5"/>
+            </pattern>
+            <radialGradient id="pinGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/>
+            </radialGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <rect width="700" height="580" fill="url(#grid)"/>
+
+          <!-- Compass rose -->
+          <g transform="translate(640,50)" opacity="0.35">
+            <circle cx="0" cy="0" r="20" fill="none" stroke="rgba(201,168,76,0.4)" stroke-width="0.5"/>
+            <text x="0" y="-24" fill="#C9A84C" font-size="8" text-anchor="middle" font-family="Inter" font-weight="600">N</text>
+            <line x1="0" y1="-16" x2="0" y2="16" stroke="#C9A84C" stroke-width="0.8"/>
+            <line x1="-16" y1="0" x2="16" y2="0" stroke="#C9A84C" stroke-width="0.5" opacity="0.5"/>
+            <polygon points="0,-14 3,-4 0,-7 -3,-4" fill="#C9A84C"/>
+          </g>
+
+          <!-- Scale bar -->
+          <g transform="translate(30,550)" opacity="0.4">
+            <line x1="0" y1="0" x2="80" y2="0" stroke="#C9A84C" stroke-width="0.8"/>
+            <line x1="0" y1="-4" x2="0" y2="4" stroke="#C9A84C" stroke-width="0.8"/>
+            <line x1="80" y1="-4" x2="80" y2="4" stroke="#C9A84C" stroke-width="0.8"/>
+            <text x="40" y="-8" fill="#C9A84C" font-size="7" text-anchor="middle" font-family="Inter">~100 km</text>
+          </g>
+
+          <!-- Aegean Sea label -->
+          <text x="480" y="300" fill="rgba(201,168,76,0.2)" font-size="18" font-family="Cormorant Garamond,serif" font-style="italic" text-anchor="middle" letter-spacing="3">Aegean Sea</text>
+
+          <!-- Greece landmass silhouette (simplified) -->
+          <path d="M 80 20 L 200 15 L 280 40 L 320 30 L 380 50 L 400 80 L 380 120 L 340 140 L 300 160 L 260 200 L 240 240 L 220 260 L 200 300 L 190 340 L 200 380 L 180 400 L 160 420 L 140 440 L 120 430 L 100 410 L 80 380 L 60 340 L 50 300 L 40 260 L 30 220 L 20 180 L 30 120 L 50 80 L 80 20Z"
+                fill="rgba(201,168,76,0.06)" stroke="rgba(201,168,76,0.2)" stroke-width="1"/>
+
+          <!-- Peloponnese -->
+          <path d="M 160 300 L 200 300 L 220 320 L 240 340 L 260 360 L 250 390 L 230 410 L 210 420 L 190 410 L 170 390 L 155 370 L 150 340 L 160 300Z"
+                fill="rgba(201,168,76,0.05)" stroke="rgba(201,168,76,0.15)" stroke-width="0.8"/>
+
+          <!-- Crete island -->
+          <path d="M 200 520 L 260 510 L 320 505 L 380 510 L 420 520 L 400 535 L 340 540 L 280 538 L 220 535 L 200 520Z"
+                fill="rgba(201,168,76,0.05)" stroke="rgba(201,168,76,0.12)" stroke-width="0.8"/>
+          <text x="310" y="528" fill="rgba(201,168,76,0.3)" font-size="8" text-anchor="middle" font-family="Inter" letter-spacing="2">CRETE</text>
+
+          <!-- Cyclades island shapes -->
+          <!-- Milos -->
+          <ellipse cx="335" cy="430" rx="14" ry="8" fill="rgba(201,168,76,0.12)" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
+          <!-- Paros -->
+          <ellipse cx="400" cy="370" rx="11" ry="8" fill="rgba(201,168,76,0.1)" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+          <!-- Naxos -->
+          <ellipse cx="430" cy="380" rx="13" ry="9" fill="rgba(201,168,76,0.07)" stroke="rgba(201,168,76,0.15)" stroke-width="0.8"/>
+          <!-- Santorini -->
+          <ellipse cx="395" cy="460" rx="10" ry="5" fill="rgba(201,168,76,0.07)" stroke="rgba(201,168,76,0.15)" stroke-width="0.8"/>
+          <!-- Mykonos -->
+          <ellipse cx="445" cy="330" rx="9" ry="5" fill="rgba(201,168,76,0.06)" stroke="rgba(201,168,76,0.12)" stroke-width="0.8"/>
+          <!-- Ios -->
+          <ellipse cx="415" cy="430" rx="7" ry="5" fill="rgba(201,168,76,0.06)" stroke="rgba(201,168,76,0.12)" stroke-width="0.8"/>
+          <!-- Sifnos -->
+          <ellipse cx="360" cy="400" rx="7" ry="5" fill="rgba(201,168,76,0.06)" stroke="rgba(201,168,76,0.12)" stroke-width="0.8"/>
+
+          <!-- Island labels (muted) -->
+          <text x="445" y="325" fill="rgba(255,255,255,0.18)" font-size="7" text-anchor="middle" font-family="Inter">Mykonos</text>
+          <text x="430" y="375" fill="rgba(255,255,255,0.18)" font-size="7" text-anchor="middle" font-family="Inter">Naxos</text>
+          <text x="395" y="455" fill="rgba(255,255,255,0.18)" font-size="7" text-anchor="middle" font-family="Inter">Santorini</text>
+          <text x="360" y="395" fill="rgba(255,255,255,0.18)" font-size="7" text-anchor="middle" font-family="Inter">Sifnos</text>
+
+          <!-- DFW origin (off-map indicator) -->
+          <g transform="translate(30,100)">
+            <circle cx="0" cy="0" r="4" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+            <text x="10" y="4" fill="rgba(255,255,255,0.3)" font-size="7.5" font-family="Inter" font-weight="600" letter-spacing="1">DFW</text>
+            <line x1="4" y1="0" x2="30" y2="0" stroke="rgba(255,255,255,0.15)" stroke-width="0.8" stroke-dasharray="3 3"/>
+          </g>
+
+          <!-- ROUTE LINE: DFW → Athens → Milos → Paros -->
+          <polyline class="route-line" points="60,100 230,195 335,430 400,370"/>
+
+          <!-- ═══ PIN: ATHENS ═══ -->
+          <g class="map-pin" id="pin-athens" onclick="selectLocation('athens')" transform="translate(230,195)">
+            <!-- Glow -->
+            <circle cx="0" cy="0" r="28" fill="url(#pinGlow)"/>
+            <!-- Ripple rings -->
+            <circle class="pin-ring" cx="0" cy="0" r="18" fill="none" stroke="rgba(201,168,76,0.3)" stroke-width="1" style="animation: pinPulse 2.5s ease-out infinite;"/>
+            <circle class="pin-ring" cx="0" cy="0" r="24" fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="0.8" style="animation: pinPulse 2.5s ease-out infinite 0.5s;"/>
+            <!-- Pin body -->
+            <circle class="pin-circle" cx="0" cy="0" r="12" fill="#C9A84C" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" filter="url(#glow)"/>
+            <!-- Number -->
+            <text class="pin-num" x="0" y="3" text-anchor="middle">01</text>
+            <!-- Label -->
+            <text class="pin-label" x="0" y="28" text-anchor="middle" fill="rgba(255,255,255,0.9)">ATHENS</text>
+            <!-- Sub -->
+            <text x="0" y="38" text-anchor="middle" fill="rgba(201,168,76,0.7)" font-size="7" font-family="Inter">Aug 22–24</text>
+          </g>
+
+          <!-- ═══ PIN: MILOS ═══ -->
+          <g class="map-pin" id="pin-milos" onclick="selectLocation('milos')" transform="translate(335,430)">
+            <circle cx="0" cy="0" r="28" fill="url(#pinGlow)"/>
+            <circle class="pin-ring" cx="0" cy="0" r="18" fill="none" stroke="rgba(201,168,76,0.3)" stroke-width="1" style="animation: pinPulse 2.5s ease-out infinite 0.3s;"/>
+            <circle class="pin-ring" cx="0" cy="0" r="24" fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="0.8" style="animation: pinPulse 2.5s ease-out infinite 0.8s;"/>
+            <circle class="pin-circle" cx="0" cy="0" r="12" fill="#C9A84C" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" filter="url(#glow)"/>
+            <text class="pin-num" x="0" y="3" text-anchor="middle">02</text>
+            <text class="pin-label" x="0" y="28" text-anchor="middle" fill="rgba(255,255,255,0.9)">MILOS</text>
+            <text x="0" y="38" text-anchor="middle" fill="rgba(201,168,76,0.7)" font-size="7" font-family="Inter">Aug 25–28</text>
+          </g>
+
+          <!-- ═══ PIN: PAROS ═══ -->
+          <g class="map-pin" id="pin-paros" onclick="selectLocation('paros')" transform="translate(400,370)">
+            <circle cx="0" cy="0" r="28" fill="url(#pinGlow)"/>
+            <circle class="pin-ring" cx="0" cy="0" r="18" fill="none" stroke="rgba(201,168,76,0.3)" stroke-width="1" style="animation: pinPulse 2.5s ease-out infinite 0.6s;"/>
+            <circle class="pin-ring" cx="0" cy="0" r="24" fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="0.8" style="animation: pinPulse 2.5s ease-out infinite 1.1s;"/>
+            <circle class="pin-circle" cx="0" cy="0" r="12" fill="#C9A84C" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" filter="url(#glow)"/>
+            <text class="pin-num" x="0" y="3" text-anchor="middle">03</text>
+            <text class="pin-label" x="0" y="28" text-anchor="middle" fill="rgba(255,255,255,0.9)">PAROS</text>
+            <text x="0" y="38" text-anchor="middle" fill="rgba(201,168,76,0.7)" font-size="7" font-family="Inter">Aug 28–29</text>
+          </g>
+
+          <!-- Stop numbers along route -->
+          <text x="140" y="150" fill="rgba(201,168,76,0.25)" font-size="7.5" font-family="Inter" font-weight="600" letter-spacing="1">STOP 01</text>
+          <text x="260" y="400" fill="rgba(201,168,76,0.25)" font-size="7.5" font-family="Inter" font-weight="600" letter-spacing="1">STOP 02</text>
+          <text x="435" y="355" fill="rgba(201,168,76,0.25)" font-size="7.5" font-family="Inter" font-weight="600" letter-spacing="1">STOP 03</text>
+
+        </svg>
+
+        <!-- Map instructions overlay -->
+        <div style="position:absolute;bottom:16px;right:16px;font-size:0.6rem;color:rgba(201,168,76,0.4);letter-spacing:0.1em;text-transform:uppercase;pointer-events:none;">
+          Click a pin to explore
+        </div>
+      </div>
+
+      <!-- SIDEBAR CARDS -->
+      <div class="map-sidebar">
+
+        <!-- Athens Card -->
+        <div class="map-card" id="mapcard-athens" onclick="selectLocation('athens')">
+          <div class="map-card-img-wrap">
+            <img class="map-card-img" src="https://images.unsplash.com/photo-1555993539-1732b0258235?w=600&q=80" alt="Athens">
+            <div class="map-card-badge">Stop 01 · Aug 22–24</div>
+          </div>
+          <div class="map-card-body">
+            <div class="map-card-dest">Athens, Greece</div>
+            <div class="map-card-name">The Ancient Capital</div>
+            <div class="map-card-desc">Two nights in the city that invented Western civilization. Grande Bretagne base in Syntagma — Acropolis walkable, Michelin dining minutes away, rooftop cocktails with Parthenon views. The essential cultural anchor before the islands take over.</div>
+            <a class="map-card-link" href="#athens">View full Athens guide →</a>
+          </div>
+        </div>
+
+        <!-- Milos Card -->
+        <div class="map-card" id="mapcard-milos" onclick="selectLocation('milos')">
+          <div class="map-card-img-wrap">
+            <img class="map-card-img" src="https://images.unsplash.com/photo-1604999333679-b86d54738315?w=600&q=80" alt="Milos">
+            <div class="map-card-badge">Stop 02 · Aug 25–28</div>
+          </div>
+          <div class="map-card-body">
+            <div class="map-card-dest">Milos, Cyclades</div>
+            <div class="map-card-name">The Volcanic Island</div>
+            <div class="map-card-desc">Three nights at Eréma — the island's defining new luxury property with private-pool suites facing the Aegean. Lunar Sarakiniko, hidden Kleftiko sea caves, uninhabited Poliegos, colorful fishermen boathouses. The most dramatic coastline in Greece.</div>
+            <a class="map-card-link" href="#milos">View full Milos guide →</a>
+          </div>
+        </div>
+
+        <!-- Paros Card -->
+        <div class="map-card" id="mapcard-paros" onclick="selectLocation('paros')">
+          <div class="map-card-img-wrap">
+            <img class="map-card-img" src="https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=600&q=80" alt="Paros">
+            <div class="map-card-badge">Stop 03 · Aug 28–29</div>
+          </div>
+          <div class="map-card-body">
+            <div class="map-card-dest">Paros, Cyclades</div>
+            <div class="map-card-name">The Liveable Island</div>
+            <div class="map-card-desc">Two nights at Parīlio on Naoussa Bay — same Empiria Group as Eréma, same design sensibility. Naoussa harbor is the finest village in the Cyclades. Moped full-island loop, Kolympithres granite formations, Michelin dining at Galazia Hytra, and stylish beach clubs on your doorstep.</div>
+            <a class="map-card-link" href="#paros">View full Paros guide →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- LOCATION DETAIL PANEL -->
+    <div class="location-detail" id="location-detail">
+
+      <!-- ATHENS DETAIL -->
+      <div id="detail-athens" class="detail-content" style="display:none;">
+        <img class="location-detail-hero" src="https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1400&q=85" alt="Athens Acropolis">
+        <div class="location-detail-inner">
+          <button class="location-detail-back" onclick="closeDetail()">← Back to Map</button>
+          <div class="location-detail-eyebrow">Stop 01 · August 22–24 · 2 Nights</div>
+          <div class="location-detail-title">Athens</div>
+          <div class="location-detail-desc">The ancient capital and the essential gateway. Two nights at Hotel Grande Bretagne on Syntagma Square — one of the great city-center hotels of Europe, steps from everything. Arrive from the overnight flight, recover in genuine luxury, then spend two days absorbing antiquity and eating spectacularly. The Acropolis at dawn, the Acropolis Museum, Plaka's labyrinth, rooftop cocktails watching the Parthenon glow at night. Michelin stars within reach every evening. Athens rewards slower movement — don't rush it before the islands.</div>
+          <div class="location-detail-grid">
+            <div class="location-detail-stat"><div class="ds-label">Hotel</div><div class="ds-value">Grande Bretagne</div></div>
+            <div class="location-detail-stat"><div class="ds-label">Michelin Stars</div><div class="ds-value">3 available (Spondi ★★, Zillers ★, Galazia Hytra ★)</div></div>
+            <div class="location-detail-stat"><div class="ds-label">Must Do</div><div class="ds-value">Acropolis at 8am · Spondi dinner · 360 Bar sunset</div></div>
+            <div class="location-detail-stat"><div class="ds-label">Fly In</div><div class="ds-value">DFW → ATH nonstop · AA Flagship Business · Aug 21 eve</div></div>
+            <div class="location-detail-stat"><div class="ds-label">Fly Out</div><div class="ds-value">ATH → MLO · Sky Express · ~45 min · Aug 25 AM</div></div>
+            <div class="location-detail-stat"><div class="ds-label">Booking</div><div class="ds-value">Amex FHR · Breakfast + $100 credit + 4pm checkout</div></div>
+          </div>
+          <a href="#athens" class="location-detail-cta">Explore Full Athens Guide →</a>
+        </div>
+      </div>
+
+      <!-- MILOS DETAIL -->
+      <div id="detail-milos" class="detail-content" style="display:none;">
+        <img class="location-detail-hero" src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1400&q=85" alt="Milos coastline">
+        <div class="location-detail-inner">
+          <button class="location-detail-back" onclick="closeDetail()">← Back to Map</button>
+          <div class="location-detail-eyebrow">Stop 02 · August 25–28 · 3 Nights</div>
+          <div class="location-detail-title">Milos</div>
+          <div class="location-detail-desc">The volcanic island the Cyclades kept secret — still largely undiscovered by mass tourism while offering landscapes that are genuinely unlike anywhere else on earth. Three nights at Eréma, Empiria Group's stunning new all-suite property with private pools opening June 2026. The itinerary here is defined by the water: a full-day private boat combining Kleftiko's cathedral sea caves, Sarakiniko's lunar white rock formations viewed from below, and the uninhabited paradise island of Poliegos. On land — the colorful syrmata boathouses of Klima and Mandrakia, the Venetian castle at Plaka for the best sunset on the island, and a private cooking class with the island's most celebrated chef. Three nights is exactly right here.</div>
+          <div class="location-detail-grid">
+            <div class="location-detail-stat"><div class="ds-label">Hotel</div><div class="ds-value">Eréma Milos · 41 Private-Pool Suites</div></div>
+            <div class="location-detail-stat"><div class="ds-label">Signature</div><div class="ds-value">Full-day private boat · Kleftiko + Poliegos</div></div>
+            <div class="location-detail-stat"><div class="ds-label">Must Eat</div><div class="ds-value">Sazón (Eréma) · Ergina · Eréma picnic on boat</div></div>
+            <div class="location-detail-stat"><div class="ds-label">Fly In</div><div class="ds-value">ATH → MLO · Sky Express · ~45 min · Aug 25 AM</div></div>
+            <div class="location-detail-stat"><div class="ds-label">Leave Via</div><div class="ds-value">SeaJets ferry MLO → PAR · ~2.5 hrs · Aug 28 AM</div></div>
+            <div class="location-detail-stat"><div class="ds-label">Booking</div><div class="ds-value">Verify Amex FHR status — new 2026 property</div></div>
+          </div>
+          <a href="#milos" class="location-detail-cta">Explore Full Milos Guide →</a>
+        </div>
+      </div>
+
+      <!-- PAROS DETAIL -->
+      <div id="detail-paros" class="detail-content" style="display:none;">
+        <img class="location-detail-hero" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1400&q=85" alt="Paros Naoussa">
+        <div class="location-detail-inner">
+          <button class="location-detail-back" onclick="closeDetail()">← Back to Map</button>
+          <div class="location-detail-eyebrow">Stop 03 · August 28–29 · 2 Nights</div>
+          <div class="location-detail-title">Paros</div>
+          <div class="location-detail-desc">The most liveable island in the Cyclades — and the perfect final chapter. Two nights at Parīlio on Naoussa Bay, sister property to Eréma under the same Empiria Group ownership. Naoussa is the finest harbor village in the archipelago: a tiny circular port ringed by whitewashed alleys, exceptional restaurants within walking distance, and a Venetian kastro on the water's edge. Day one: Naoussa and beach clubs at Kolympithres. Day two: the full moped circuit — mountain village Lefkes, marble Byzantine path, Parikia's 4th-century Ekatontapiliani church, coastal road back. Galazia Hytra Michelin dinner is the essential Paros experience — book immediately, it fills for August in June.</div>
+          <div class="location-detail-grid">
+            <div class="location-detail-stat"><div class="ds-label">Hotel</div><div class="ds-value">Parīlio · Naoussa Bay · 46 Suites</div></div>
+            <div class="location-detail-stat"><div class="ds-label">Signature</div><div class="ds-value">Moped island loop · Naoussa harbor</div></div>
+            <div class="location-detail-stat"><div class="ds-label">Must Eat</div><div class="ds-value">Galazia Hytra ★ · Barbarossa · RADA</div></div>
+            <div class="location-detail-stat"><div class="ds-label">Arrive Via</div><div class="ds-value">SeaJets ferry MLO → PAR · ~2.5 hrs · Aug 28 AM</div></div>
+            <div class="location-detail-stat"><div class="ds-label">Fly Out</div><div class="ds-value">PAR → ATH · then ATH → DFW nonstop · Aug 29</div></div>
+            <div class="location-detail-stat"><div class="ds-label">Booking</div><div class="ds-value">Amex FHR confirmed · Breakfast + $100 credit</div></div>
+          </div>
+          <a href="#paros" class="location-detail-cta">Explore Full Paros Guide →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- ATHENS -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="athens">
+  <div class="dest-hero" style="">
+    <div class="dest-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1555993539-1732b0258235?w=1600&q=85');"></div>
+    <div class="dest-number">01</div>
+    <div class="dest-hero-content">
+      <div class="dest-label">Stop One · Aug 22–24</div>
+      <h2 class="dest-title">Athens</h2>
+      <p class="dest-desc">Two nights in the ancient capital. Arrive recovered, eat spectacularly, and let the Acropolis orient you before the islands take over. City-center base at Grande Bretagne — everything is walkable.</p>
+      <div class="dest-stats">
+        <div class="dest-stat"><span class="n">2</span><span class="l">Nights</span></div>
+        <div class="dest-stat"><span class="n">15</span><span class="l">Options</span></div>
+        <div class="dest-stat"><span class="n">3</span><span class="l">Michelin Stars</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Athens Activities -->
+  <div class="content-section">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-eyebrow">Athens · Activities</div>
+        <h3 class="section-title" style="font-size:1.8rem;margin-bottom:0;">Things to Do</h3>
+      </div>
+      <div class="section-header-right">15 curated options · click to mark interest</div>
+    </div>
+    <div class="cards-grid" id="athens-activities">
+
+      <div class="option-card" onclick="toggleCard(this)" data-dest="athens" data-slot="activity">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=600&q=80" alt="Acropolis">
+          <div class="card-code">A</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-culture">Culture</span><span class="tag">2–3 hrs</span></div>
+          <div class="card-name">Acropolis + Parthenon</div>
+          <div class="card-note">The defining monument of Western civilization. Go at opening (8am) — beats both the crowds and the August heat. Hire a private guide for deeper context on the architecture and history.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">⏱ Early AM only</div>
+            <div class="card-meta-item">🎟 Book tickets in advance</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)" data-dest="athens" data-slot="activity">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1571146938236-c5e2c8e3e8b4?w=600&q=80" alt="Acropolis Museum">
+          <div class="card-code">B</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-culture">Culture</span><span class="tag">2–3 hrs</span></div>
+          <div class="card-name">Acropolis Museum</div>
+          <div class="card-note">World-class and massively underrated. The building itself is architecture worth the visit — glass floors over excavations, natural light, the original Parthenon frieze. Pairs perfectly with the Acropolis visit same morning.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">⏱ Pair with A</div>
+            <div class="card-meta-item">📍 Below Acropolis hill</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)" data-dest="athens" data-slot="activity">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1570939274717-7eda259b50ed?w=600&q=80" alt="Plaka">
+          <div class="card-code">C</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-culture">Culture</span><span class="tag">Half Day</span></div>
+          <div class="card-name">Plaka Wander</div>
+          <div class="card-note">Athens' old town at the foot of the Acropolis. Narrow marble-paved alleys, bougainvillea spilling over whitewashed walls, bookshops, jewelers, and the scent of oregano. Best explored slowly with no agenda.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">⏱ Half day</div>
+            <div class="card-meta-item">🚶 Fully walkable</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)" data-dest="athens" data-slot="activity">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1601076022745-88c4dbca3dfe?w=600&q=80" alt="Monastiraki">
+          <div class="card-code">D</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-culture">Culture</span><span class="tag">Half Day</span></div>
+          <div class="card-name">Monastiraki + Flea Market</div>
+          <div class="card-note">The bazaar heart of Athens. Antiques, vintage finds, street food, and controlled chaos. The square itself has one of the best street-level Acropolis views in the city. Best on Saturday mornings when the market fully opens.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">⏱ Half day</div>
+            <div class="card-meta-item">📅 Best Saturday AM</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)" data-dest="athens" data-slot="activity">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1589561253898-768105ca91a8?w=600&q=80" alt="Ancient Agora">
+          <div class="card-code">E</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-culture">Culture</span><span class="tag">1–2 hrs</span></div>
+          <div class="card-name">Ancient Agora</div>
+          <div class="card-note">The beating civic heart of ancient Athens — where Socrates walked and democracy was debated. Often skipped by tourists rushing to the Acropolis. The Temple of Hephaestus here is the best-preserved ancient Greek temple in existence.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">⏱ 1–2 hrs</div>
+            <div class="card-meta-item">🏛 Often overlooked</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)" data-dest="athens" data-slot="activity">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=600&q=80" alt="National Archaeological Museum">
+          <div class="card-code">F</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-culture">Culture</span><span class="tag">2–3 hrs</span></div>
+          <div class="card-name">National Archaeological Museum</div>
+          <div class="card-note">The greatest collection of ancient Greek antiquities on earth. The Antikythera Mechanism, the Mask of Agamemnon, the Artemision Bronze. If you do one museum in Greece, this is it — allow a full morning.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">⏱ 2–3 hrs minimum</div>
+            <div class="card-meta-item">🏆 World-class collection</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)" data-dest="athens" data-slot="activity">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?w=600&q=80" alt="Anafiotika">
+          <div class="card-code">G</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-scenic">Scenic</span><span class="tag">1 hr</span></div>
+          <div class="card-name">Anafiotika Neighborhood</div>
+          <div class="card-note">A hidden Cycladic village tucked into the slope of the Acropolis hill. Built in the 19th century by workers from Anafi island who recreated their home island aesthetic — whitewashed cubes, bright doors, wild cats. Completely surreal inside Athens.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">⏱ 45–60 min</div>
+            <div class="card-meta-item">📍 Inside Plaka</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)" data-dest="athens" data-slot="activity">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1601637085251-69e0e3e3e14a?w=600&q=80" alt="Lycabettus Hill">
+          <div class="card-code">H</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-scenic">Scenic</span><span class="tag">1–2 hrs</span></div>
+          <div class="card-name">Lycabettus Hill Sunset</div>
+          <div class="card-note">The highest point in central Athens at 277m. Cable car or hike up. The 360° panorama at sunset — Acropolis below, Aegean shimmering to the horizon, city spread in every direction — is one of the great urban views in Europe.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">⏱ Arrive 45 min before sunset</div>
+            <div class="card-meta-item">🚡 Cable car available</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)" data-dest="athens" data-slot="activity">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1605289355680-75fb41239154?w=600&q=80" alt="Syntagma">
+          <div class="card-code">I</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-culture">Culture</span><span class="tag">30 min</span></div>
+          <div class="card-name">Syntagma + Changing of Guard</div>
+          <div class="card-note">The Evzone changing of guard ceremony in front of the Parliament building is theatrical and genuinely impressive — elaborate traditional uniforms, deliberate choreography. Happens every hour; the full ceremony is on Sundays at 11am. Steps from Grande Bretagne.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">⏱ 30 min</div>
+            <div class="card-meta-item">🏨 Outside your hotel</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)" data-dest="athens" data-slot="activity">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&q=80" alt="GB Roof Garden">
+          <div class="card-code">J</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-drink">Drink</span><span class="tag">Afternoon</span></div>
+          <div class="card-name">GB Roof Garden — Grande Bretagne</div>
+          <div class="card-note">The easiest luxury afternoon in Athens — take the elevator to the rooftop of your own hotel. Acropolis and Syntagma views, excellent cocktails, impeccable service. Perfect first-afternoon decompression or pre-dinner drinks perch.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">🏨 Your hotel</div>
+            <div class="card-meta-item">🍹 Full cocktail menu</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)" data-dest="athens" data-slot="activity">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80" alt="360 Bar Monastiraki">
+          <div class="card-code">K</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-drink">Drink</span><span class="tag">Rooftop</span></div>
+          <div class="card-name">360 Cocktail Bar — Monastiraki</div>
+          <div class="card-note">Iconic panoramic rooftop above Monastiraki Square. Craft cocktails include Kallos — made with mastiha, a local spirit from mastic trees. The Acropolis view here is arguably the most dramatic in the city. Open from 9am.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">⏱ All afternoon</div>
+            <div class="card-meta-item">📍 Monastiraki Square</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)" data-dest="athens" data-slot="activity">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1519671282429-b44660ead0a7?w=600&q=80" alt="Psyrri">
+          <div class="card-code">L</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-drink">Drink</span><span class="tag">Bar Hop</span></div>
+          <div class="card-name">Psyrri Neighborhood Bar Hop</div>
+          <div class="card-note">Athens' creative bar district. Street art, string lights, tavernas spilling onto cobblestones, and some of the best cocktail bars in Southern Europe. Start at sunset, let it evolve. The whole district is walkable and the energy builds through the evening.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">⏱ Afternoon into evening</div>
+            <div class="card-meta-item">🍸 World-class cocktail bars</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)" data-dest="athens" data-slot="activity">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1574096079513-d8259312b785?w=600&q=80" alt="Clumsies Baba au Rum">
+          <div class="card-code">M</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-drink">Drink</span><span class="tag">Cocktail Bars</span></div>
+          <div class="card-name">The Clumsies + Baba au Rum</div>
+          <div class="card-note">Two of the world's top-ranked cocktail bars, minutes apart on Kolokotroni Street. The Clumsies is a multi-level bar-restaurant serving impeccably constructed drinks. Baba au Rum holds one of the world's greatest rum collections — even non-rum drinkers are converted here.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">🏆 World's 50 Best Bars</div>
+            <div class="card-meta-item">📍 Kolokotroni St</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)" data-dest="athens" data-slot="activity">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1514190051997-0f6f39ca5cde?w=600&q=80" alt="Food Tour Athens">
+          <div class="card-code">N</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-food">Food Tour</span><span class="tag">Half Day</span></div>
+          <div class="card-name">Private Food Tour — Monastiraki + Varvakeios Market</div>
+          <div class="card-note">Private guide takes you through backstreets, artisan bakeries, specialty food shops, and the Varvakeios central market. Tastings: pitarakia, souvlaki, loukoumades, local honey, Greek cheese, spirits. Reveals an Athens invisible to most visitors.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">⏱ 3.5–4 hrs</div>
+            <div class="card-meta-item">👥 Private for 4</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)" data-dest="athens" data-slot="activity">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600&q=80" alt="Street Food Tour">
+          <div class="card-code">O</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-food">Food Tour</span><span class="tag">Half Day</span></div>
+          <div class="card-name">Private Street Food Walking Tour</div>
+          <div class="card-note">Alternative food tour route focused on Acropolis District backstreets — koulouri, bougatsa, street souvlaki, and loukoumades at their best sources. More casual than N, better for a morning when you want movement rather than market browsing.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">⏱ 3 hrs · AM start</div>
+            <div class="card-meta-item">🥙 Street food focus</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Athens Dining -->
+    <div style="margin-top:64px;">
+      <div class="section-header">
+        <div class="section-header-left">
+          <div class="section-eyebrow">Athens · Dining</div>
+          <h3 class="section-title" style="font-size:1.8rem;margin-bottom:0;">Where to Eat</h3>
+        </div>
+        <div class="section-header-right">8 restaurants · Michelin-verified</div>
+      </div>
+      <div class="cards-grid">
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Spondi">
+            <div class="card-code">1</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="michelin-badge">★★ Michelin</span><span class="price-level">€€€€€</span></div>
+            <div class="card-name">Spondi</div>
+            <div class="card-note">Athens' most decorated restaurant and the pinnacle of Greek fine dining. Two Michelin stars. French-influenced technique applied to impeccable Greek ingredients. The tasting menu is the move. Book 3–4 weeks out for August. Pangrati neighborhood, 15 min from Grande Bretagne.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🍽 Dinner only</div>
+              <div class="card-meta-item">📅 Book 3–4 weeks ahead</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&q=80" alt="Zillers">
+            <div class="card-code">2</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="michelin-badge">★ Michelin</span><span class="price-level">€€€€</span></div>
+            <div class="card-name">Zillers</div>
+            <div class="card-note">Michelin-starred rooftop restaurant directly facing the Acropolis. Dining with the Parthenon lit up across from you at night is genuinely transcendent. Creative modern Greek cuisine. Book the outdoor terrace — explicitly request Acropolis view seats. Book 2–3 weeks out.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🌙 Dinner · Rooftop</div>
+              <div class="card-meta-item">🏛 Acropolis views</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="Galazia Hytra">
+            <div class="card-code">3</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="michelin-badge">★ Michelin</span><span class="price-level">€€€€</span></div>
+            <div class="card-name">Galazia Hytra</div>
+            <div class="card-note">Michelin-starred Athens outpost of the acclaimed brand. Modern Greek cooking at a high level — precise technique, outstanding ingredient sourcing. The Oniro City venue is stylish and the service is exceptional. A top pick if Spondi/Zillers are booked out.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🍽 Dinner</div>
+              <div class="card-meta-item">📍 Oniro City building</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1515669097368-22e68427d265?w=600&q=80" alt="GB Roof Garden">
+            <div class="card-code">4</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag">Hotel Restaurant</span><span class="price-level">€€€€</span></div>
+            <div class="card-name">GB Roof Garden — Grande Bretagne</div>
+            <div class="card-note">Your hotel's rooftop restaurant. Mediterranean menu, Acropolis and Syntagma views, impeccable service. The easiest elevated lunch in Athens — no commute, guaranteed quality. Perfect for a first-day arrival lunch or lazy second-day midday meal.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🍽 Lunch + Dinner</div>
+              <div class="card-meta-item">🏨 In-hotel</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="Varoulko Seaside">
+            <div class="card-code">5</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="michelin-badge">★ Michelin</span><span class="price-level">€€€€€</span></div>
+            <div class="card-name">Varoulko Seaside</div>
+            <div class="card-note">Michelin-starred seafood on the waterfront at Mikrolimano harbor in Piraeus. Chef Lefteris Lazarou is Athens' most celebrated seafood chef. The setting — boats bobbing on dark water, marina lights — is as good as the food. About 30 minutes from Grande Bretagne.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🐟 Seafood-focused</div>
+              <div class="card-meta-item">📍 30 min from hotel</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=600&q=80" alt="Soil">
+            <div class="card-code">6</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag">Natural Wine</span><span class="tag">Chef-Driven</span><span class="price-level">€€€€</span></div>
+            <div class="card-name">Soil</div>
+            <div class="card-note">Kolonaki's most interesting chef-driven restaurant. Natural wines, hyper-local ingredients, intimate room. The antithesis of grand hotel dining — creative, personal, and the kind of place where the chef comes out to talk about where things were sourced. Excellent for a more low-key evening.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🍷 Natural wine focus</div>
+              <div class="card-meta-item">📍 Kolonaki</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80" alt="Tzitzikas Mermingas">
+            <div class="card-code">7</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag">Mezze</span><span class="tag">Casual</span><span class="price-level">€€€</span></div>
+            <div class="card-name">Tzitzikas & Mermingas</div>
+            <div class="card-note">The best casual Greek mezze lunch in central Athens. Steps from Grande Bretagne. Order a spread — taramasalata, grilled halloumi, zucchini fritters, lamb chops — and share everything. Loud, fun, genuinely good. Perfect Day 1 lunch while you're still orienting.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🥙 Lunch ideal</div>
+              <div class="card-meta-item">📍 Syntagma area</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Klimataria">
+            <div class="card-code">8</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag">Taverna</span><span class="tag">Live Music</span><span class="price-level">€€€</span></div>
+            <div class="card-name">Klimataria</div>
+            <div class="card-note">A genuinely old-school Athenian taverna with live rebetiko music — the Greek blues born in Asia Minor. Communal tables, carafes of house wine, traditional food, and musicians who've been playing there for decades. One of the most atmospheric evenings you can have in Athens.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🎵 Live rebetiko nightly</div>
+              <div class="card-meta-item">📍 Monastiraki</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- MILOS -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="milos">
+  <div class="dest-hero">
+    <div class="dest-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1604999333679-b86d54738315?w=1600&q=85'); background-position: center 60%;"></div>
+    <div class="dest-number">02</div>
+    <div class="dest-hero-content">
+      <div class="dest-label">Stop Two · Aug 25–28</div>
+      <h2 class="dest-title">Milos</h2>
+      <p class="dest-desc">The volcanic island the Cyclades kept secret. Lunar landscapes of white pumice, hidden sea caves, 70+ beaches accessible only by boat, and the most dramatic coastline in Greece. Three nights at Eréma.</p>
+      <div class="dest-stats">
+        <div class="dest-stat"><span class="n">3</span><span class="l">Nights</span></div>
+        <div class="dest-stat"><span class="n">12</span><span class="l">Options</span></div>
+        <div class="dest-stat"><span class="n">70+</span><span class="l">Beaches</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-eyebrow">Milos · Activities</div>
+        <h3 class="section-title" style="font-size:1.8rem;margin-bottom:0;">Things to Do</h3>
+      </div>
+      <div class="section-header-right">12 curated options</div>
+    </div>
+    <div class="cards-grid">
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80" alt="Private Boat Milos">
+          <div class="card-code">A</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-water">Water</span><span class="tag">Full Day</span></div>
+          <div class="card-name">Private Boat — Kleftiko + Sarakiniko + Papafragas</div>
+          <div class="card-note">The non-negotiable Milos experience. Private charter only — no group boats. Kleftiko sea caves (swim through volcanic arches), Sarakiniko moonscape from the water, Papafragas gorge with natural swimming pools. The coastline can only be understood from the sea. Book via Salty Rides or equivalent private charter.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">⚓ Private charter only</div>
+            <div class="card-meta-item">⏱ Full day</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="Poliegos Island">
+          <div class="card-code">B</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-water">Water</span><span class="tag">Full Day</span></div>
+          <div class="card-name">Poliegos Island Boat Day</div>
+          <div class="card-note">The uninhabited island just south of Milos with some of the most crystalline water in the Mediterranean. No permanent residents, no facilities, no crowds. Combine with A on the same full-day charter for the definitive Milos offshore experience. The water color here — jade to deep sapphire — is extraordinary.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">🏝 Uninhabited island</div>
+            <div class="card-meta-item">💎 Combine with A</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1473496169904-658ba7574b3d?w=600&q=80" alt="Sarakiniko Sunrise">
+          <div class="card-code">C</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-scenic">Scenic</span><span class="tag">1–2 hrs</span></div>
+          <div class="card-name">Sarakiniko Sunrise</div>
+          <div class="card-note">The lunar white pumice landscape of Sarakiniko at sunrise, before the 11am crowds arrive, is one of the most otherworldly things in Greece. Pure white volcanic rock, turquoise water below, golden light. 15-minute drive from Eréma. Early risers only — set the alarm.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">🌅 Early AM only</div>
+            <div class="card-meta-item">📍 15 min from Eréma</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1520350094754-f0fdcac35505?w=600&q=80" alt="Fishermen Villages Milos">
+          <div class="card-code">D</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-culture">Culture</span><span class="tag">Half Day</span></div>
+          <div class="card-name">Fishermen Village Loop — Klima, Mandrakia, Firopotamos</div>
+          <div class="card-note">Three of Milos' ancient fishing villages where the syrmata — colorful boathouses with the sea literally lapping at their doors — are still in use. Reds, blues, yellows painted directly onto volcanic rock. Klima is the most photogenic. Best done slowly on foot, stopping for coffee in each village.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">⏱ Half day</div>
+            <div class="card-meta-item">📸 Most photogenic in Cyclades</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=600&q=80" alt="Plaka Castle Milos">
+          <div class="card-code">E</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-scenic">Scenic</span><span class="tag">Half Day</span></div>
+          <div class="card-name">Plaka Village + Venetian Castle</div>
+          <div class="card-note">Milos' hilltop capital — whitewashed cubic houses climbing to a 13th-century Venetian kastro at the summit. The best sunset point on the island, bar none. The view from the kastro walls encompasses the entire caldera of the island. Arrive 90 minutes before sunset and work your way up slowly.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">🌅 Best sunset on island</div>
+            <div class="card-meta-item">🏰 Venetian kastro</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="ATV Moped Milos">
+          <div class="card-code">F</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-adventure">Adventure</span><span class="tag">Full Day</span></div>
+          <div class="card-name">ATV / Moped Island Loop</div>
+          <div class="card-note">Rent ATVs or mopeds and circumnavigate the island on your own terms. Hit Firiplaka (multicolored sand, waves), Tsigrado (rope-access hidden cove), Paleochori (geothermally heated beach), Provatas (calm, sheltered), and the volcanic moonscape of Plaka in one epic day.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">🛵 Full day</div>
+            <div class="card-meta-item">🗺 Self-guided</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=80" alt="Kostantakis Winery">
+          <div class="card-code">G</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-food">Food & Drink</span><span class="tag">2 hrs</span></div>
+          <div class="card-name">Kostantakis Cave Winery Tasting</div>
+          <div class="card-note">The only official winery on Milos — a small, family-run operation in a natural cave. Volcanic soil gives the wines a distinctive mineral edge. Organic small-batch production, cheese plates, and the owners pour and explain themselves. Genuinely special — this isn't a tourist experience, it's a family sharing their work.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">🍷 Only winery on Milos</div>
+            <div class="card-meta-item">📍 Pollonia village</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600&q=80" alt="Prophet Elias Chapel">
+          <div class="card-code">H</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-scenic">Scenic</span><span class="tag">1 hr</span></div>
+          <div class="card-name">Prophet Elias Chapel — Sunset</div>
+          <div class="card-note">A tiny whitewashed chapel on the highest peak of Milos. The panoramic view from the summit — island spread below in every direction, Aegean glittering, sunset turning the volcanic rock copper and amber — is the kind of moment Greece is actually made of. Combine with ATV day (F) en route.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">🌅 Sunset timing</div>
+            <div class="card-meta-item">🏔 Highest peak</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=80" alt="Kimolos Island">
+          <div class="card-code">I</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-water">Excursion</span><span class="tag">Full Day</span></div>
+          <div class="card-name">Kimolos Island Day Trip</div>
+          <div class="card-note">Milos' tiny neighbor — a 15-minute ferry from Pollonia to a genuinely off-grid Greek island. Chalk-white Chorio village, Prassa beach (stunning), lunch at Prasonisi, sunset dinner at Kalamitsi waterfront. About 800 permanent residents. The definition of undiscovered. Replaces all other Day 3 activity if chosen.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">⏱ Full day excursion</div>
+            <div class="card-meta-item">🏝 15 min ferry from Pollonia</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600&q=80" alt="Tsigrado Beach">
+          <div class="card-code">J</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-beach">Beach</span><span class="tag">Half Day</span></div>
+          <div class="card-name">Tsigrado Beach</div>
+          <div class="card-note">Accessed only by descending a rope-and-ladder system down a cliff face into a narrow gorge opening to a secret cove. Exotic turquoise water, fine sand, completely sheltered, almost no one there. The access ritual is part of the experience. South coast of Milos — include on ATV day.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">🪢 Rope ladder access</div>
+            <div class="card-meta-item">💎 Hidden cove</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1570979249969-e68e4c8de6d1?w=600&q=80" alt="Catacombs Milos">
+          <div class="card-code">K</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-culture">Culture</span><span class="tag">1–2 hrs</span></div>
+          <div class="card-name">Milos Catacombs + Roman Amphitheater</div>
+          <div class="card-note">The only early Christian catacombs in Greece outside Athens — 125 meters of tunnels carved from volcanic rock containing 2,000 burial niches from the 1st–5th centuries AD. Adjacent Roman amphitheater with Aegean views. Short visit but genuinely affecting — this is not tourist theater.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">⏱ 1–2 hrs</div>
+            <div class="card-meta-item">📍 Near Tripiti village</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=600&q=80" alt="Cooking Class Milos">
+          <div class="card-code">L</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-food">Culinary</span><span class="tag">Half Day AM</span></div>
+          <div class="card-name">Private Cooking Class — Chef Vasilis</div>
+          <div class="card-note">3.5-hour private cooking class preparing up to 13 traditional Milos dishes including pitarakia (the island's signature cheese pastry), local seafood preparations, and Cycladic meze. Wine tasting included. Ends with a full meal of what you've cooked. Private booking for 4. Available Mon–Fri, Apr–Oct 2026.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">👨‍🍳 Private for 4</div>
+            <div class="card-meta-item">🍷 Wine tasting included</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Milos Dining -->
+    <div style="margin-top:64px;">
+      <div class="section-header">
+        <div class="section-header-left">
+          <div class="section-eyebrow">Milos · Dining</div>
+          <h3 class="section-title" style="font-size:1.8rem;margin-bottom:0;">Where to Eat</h3>
+        </div>
+        <div class="section-header-right">9 restaurants</div>
+      </div>
+      <div class="cards-grid">
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1502301103665-0b95cc738daf?w=600&q=80" alt="Sazon Erema">
+            <div class="card-code">1</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag">In-Hotel</span><span class="tag">Fine Dining</span><span class="price-level">€€€€€</span></div>
+            <div class="card-name">Sazón — Eréma</div>
+            <div class="card-note">Eréma's signature restaurant helmed by Chef Yiannis Kioroglou — La Petite Maison Cannes alumni. Mediterranean menu built entirely on Milos ingredients: citrus-cured seafood, slow-cooked meats, grilled flatbreads. The in-hotel dinner on arrival night removes all logistical friction — pure decompression.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🍽 Dinner · In-hotel</div>
+              <div class="card-meta-item">👨‍🍳 Chef Kioroglou</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="Ergina Milos">
+            <div class="card-code">2</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag">Elevated Taverna</span><span class="price-level">€€€€</span></div>
+            <div class="card-name">Ergina</div>
+            <div class="card-note">Hidden in a traditional house in Tripiti with a stunning balcony overlooking the bay. Gourmet elevated taverna — the lobster pasta is the signature dish, wine list is one of the best on the island. All pasta and pie doughs made fresh. Seasonal menu that changes with whatever's landed or harvested that week.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🦞 Lobster pasta signature</div>
+              <div class="card-meta-item">📍 Tripiti · Book ahead</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Aragosta Milos">
+            <div class="card-code">3</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag">Seafood</span><span class="tag">Cocktail Bar</span><span class="price-level">€€€€</span></div>
+            <div class="card-name">Aragosta — Adamas</div>
+            <div class="card-note">Adamas harbor's finest — rooftop dining over the marina, outstanding seafood, and what many consider the best cocktails on the island. By day it's a casual restaurant; at night it becomes a sleek lounge with Cycladic wines and sunset views. Sit on the top level specifically — request it when booking.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🌅 Sunset marina views</div>
+              <div class="card-meta-item">📍 Adamas harbor</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="Marrone de Milos">
+            <div class="card-code">4</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag">Modern Greek</span><span class="tag">Beachfront</span><span class="price-level">€€€€</span></div>
+            <div class="card-name">Marrone de Milos</div>
+            <div class="card-note">Newer arrival on Pollonia beach — creative Greek-international cooking, chic design, dining directly on the sand. Sea bass with inventive sauces, shrimp barley, cuttlefish ink risotto. The view into Pollonia bay is magnificent. Best newer restaurant on the island — local reputation building fast.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🏖 Pollonia beach</div>
+              <div class="card-meta-item">⭐ Best newer arrival</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1484659619207-9165d119dafe?w=600&q=80" alt="Medusa Mandrakia">
+            <div class="card-code">5</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag">Taverna</span><span class="tag">Iconic</span><span class="price-level">€€€</span></div>
+            <div class="card-name">Medusa — Mandrakia</div>
+            <div class="card-note">Tables positioned between the colorful syrmata boathouses with the sea literally at your feet. Grilled octopus, fresh catch, simple Greek classics. It's not fine dining — it's the quintessential Milos experience. Best as a lunch stop during the fishermen village loop (D). Arrive early — fills fast.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🐙 Grilled octopus</div>
+              <div class="card-meta-item">🍽 Lunch ideal</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600&q=80" alt="O Hamos Milos">
+            <div class="card-code">6</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag">Farm-to-Table</span><span class="price-level">€€€</span></div>
+            <div class="card-name">O! Hamos</div>
+            <div class="card-note">A pioneer of farm-to-plate gastronomy in Greece. Everything on the table is grown on-site — the pigs, the honey, the olive oil, the eggs. Booking is mandatory (weeks in advance in August). The experience is convivial rather than refined — long communal-style tables, enormous portions, genuinely exceptional ingredients.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🌱 Entirely farm-grown</div>
+              <div class="card-meta-item">📅 Book weeks ahead</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="Kalamitsi Pollonia">
+            <div class="card-code">7</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag">Sunset Taverna</span><span class="price-level">€€€</span></div>
+            <div class="card-name">Kalamitsi — Pollonia</div>
+            <div class="card-note">Classic waterfront sunset dinner in Pollonia harbor — the postcard Milos evening. Fishing boats tied up outside, golden hour over the water, simple fresh seafood. The setting does more work than the food, but the food is genuinely good. Perfect ending to an ATV/village day.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🌅 Sunset timing</div>
+              <div class="card-meta-item">📍 Pollonia harbor</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=600&q=80" alt="Cooking Class Lunch">
+            <div class="card-code">8</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag">Experiential</span><span class="tag">Lunch</span><span class="price-level">€€</span></div>
+            <div class="card-name">Cooking Class Lunch — Chef Vasilis</div>
+            <div class="card-note">The meal that concludes the private cooking class (L). You cook it, you eat it — 13 traditional Milos dishes including pitarakia, fresh seafood preparations, and local meze, with the wines you tasted during class. A built-in lunch that requires no reservation — you're already there.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🍽 Pairs with Activity L</div>
+              <div class="card-meta-item">🥘 13 dishes</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=600&q=80" alt="Eréma Picnic Basket">
+            <div class="card-code">9</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag">Experiential</span><span class="tag">Lunch On Boat</span><span class="price-level">€€€€</span></div>
+            <div class="card-name">Eréma Picnic Basket — On the Water</div>
+            <div class="card-note">Request via Eréma concierge: a chef-prepared picnic basket from the Sazón kitchen, consumed on deck during the private boat day. Anchored at Poliegos or inside Kleftiko — eating in a sea cave with the Aegean around you. Request at check-in; confirm the morning of the boat day. This is the defining Milos lunch.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">⚓ Request via concierge</div>
+              <div class="card-meta-item">🚢 Pairs with Boat Day A+B</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- PAROS -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="paros">
+  <div class="dest-hero">
+    <div class="dest-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=1600&q=85'); background-position: center 50%;"></div>
+    <div class="dest-number">03</div>
+    <div class="dest-hero-content">
+      <div class="dest-label">Stop Three · Aug 28–29</div>
+      <h2 class="dest-title">Paros</h2>
+      <p class="dest-desc">The most liveable island in the Cyclades. Naoussa — the finest harbor village in the archipelago, exceptional dining, beach clubs worth staying for, and marble-paved mountain villages. Two nights at Parīlio.</p>
+      <div class="dest-stats">
+        <div class="dest-stat"><span class="n">2</span><span class="l">Nights</span></div>
+        <div class="dest-stat"><span class="n">10</span><span class="l">Options</span></div>
+        <div class="dest-stat"><span class="n">1</span><span class="l">Michelin Star</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-eyebrow">Paros · Activities</div>
+        <h3 class="section-title" style="font-size:1.8rem;margin-bottom:0;">Things to Do</h3>
+      </div>
+      <div class="section-header-right">10 curated options</div>
+    </div>
+    <div class="cards-grid">
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Moped Paros">
+          <div class="card-code">A</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-adventure">Adventure</span><span class="tag">Full Day</span></div>
+          <div class="card-name">Moped Loop — Naoussa → Lefkes → Parikia → Coast</div>
+          <div class="card-note">The full-island moped loop. Start in Naoussa, climb into the mountains to Lefkes (marble-paved streets, Byzantine path, total quiet), descend to Parikia Old Town and the Ekatontapiliani church, then follow the coastal road back north past beaches. The island is small enough to cover fully in a day — don't rush it.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">🛵 Full day</div>
+            <div class="card-meta-item">🗺 Full island circuit</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80" alt="Naoussa Paros">
+          <div class="card-code">B</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-culture">Culture</span><span class="tag">Half Day</span></div>
+          <div class="card-name">Naoussa Town Wander</div>
+          <div class="card-note">The finest harbor village in the Cyclades — no contest. Fishing boats in a tiny circular harbor, whitewashed alleys too narrow for cars, excellent restaurants every 20 meters, a Venetian kastro ruin on the water's edge. Best explored in the late afternoon as the heat drops and the village wakes up.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">⏱ Late afternoon best</div>
+            <div class="card-meta-item">🏘 10 min from Parīlio</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="Kolympithres Beach">
+          <div class="card-code">C</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-beach">Beach</span><span class="tag">Half Day</span></div>
+          <div class="card-name">Kolympithres Beach</div>
+          <div class="card-note">Sculptural granite rock formations create a series of natural coves and swimming pools — unlike any beach in the Cyclades. The rock shapes are geological anomalies that look like they were placed by an artist. 10 minutes from Parīlio. Go in the morning before the beach clubs fill. The formation closest to the road is the most spectacular.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">📍 10 min from Parīlio</div>
+            <div class="card-meta-item">🪨 Granite formations</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1589561253898-768105ca91a8?w=600&q=80" alt="Parikia Old Town">
+          <div class="card-code">D</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-culture">Culture</span><span class="tag">Half Day</span></div>
+          <div class="card-name">Parikia Old Town + Ekatontapiliani</div>
+          <div class="card-note">The Panagia Ekatontapiliani — Church of 100 Doors — is the finest Byzantine church in the Cyclades and one of the best-preserved early Christian structures in Greece, dating to the 4th century. The Parikia old town surrounding it has its own labyrinthine Cycladic charm distinct from Naoussa. Best stop on the moped loop (A).</div>
+          <div class="card-meta">
+            <div class="card-meta-item">⛪ 4th century Byzantine</div>
+            <div class="card-meta-item">⏱ Pairs with A</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600&q=80" alt="Paros Sunset">
+          <div class="card-code">E</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-scenic">Scenic</span><span class="tag">1–2 hrs</span></div>
+          <div class="card-name">Sunset — Agios Fokas or Livadia Beach</div>
+          <div class="card-note">Both west-facing beaches near Parikia deliver clean, unobstructed Aegean sunsets. Agios Fokas is quieter and more local; Livadia is slightly more developed with a beach bar. Either works as a pre-dinner aperitivo moment. Combine with Day 2 coastal road return on the moped.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">🌅 West-facing</div>
+            <div class="card-meta-item">🍹 Beach bar at Livadia</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80" alt="Paros Boat">
+          <div class="card-code">F</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-water">Water</span><span class="tag">Full Day</span></div>
+          <div class="card-name">Private Boat — Paros Coastline</div>
+          <div class="card-note">Paros' west coast has excellent sea caves, hidden coves, and clear water — not as dramatic as Milos but the experience of having a private boat is consistently exceptional anywhere in the Cyclades. Great option if you want another water day after Milos or as an Antiparos alternative.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">⚓ Private charter only</div>
+            <div class="card-meta-item">🌊 West coast caves</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=80" alt="Antiparos">
+          <div class="card-code">G</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-water">Excursion</span><span class="tag">Full Day</span></div>
+          <div class="card-name">Antiparos — Private Boat</div>
+          <div class="card-note">Paros' tiny sibling island — accessible by private boat (no public ferry per plan). Antiparos town is a miniature Cycladic gem with excellent tavernas and far fewer visitors than Paros. The Blue Cave sea cave system is the main natural attraction. Day trip potential but needs an early start — private boat there and back.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">🚢 Private boat only</div>
+            <div class="card-meta-item">⏱ Full day</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1554254464-7d538fcb6679?w=600&q=80" alt="Lefkes Village">
+          <div class="card-code">H</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-culture">Culture/Scenic</span><span class="tag">Half Day</span></div>
+          <div class="card-name">Lefkes Village + Byzantine Path</div>
+          <div class="card-note">The most beautiful mountain village in the Cyclades — marble-paved streets, medieval architecture, complete quiet. The Byzantine path that descends from Lefkes toward Prodromos is a 4km marble-paved trail through the island's interior. Dramatically different from coastal Paros. Best on the moped loop (A) as the mountain stop.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">🏔 Mountain village</div>
+            <div class="card-meta-item">🗿 Byzantine marble path</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80" alt="Cabana Beach Club Paros">
+          <div class="card-code">I</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-beach">Beach Club</span><span class="tag">Half Day</span></div>
+          <div class="card-name">Cabana Beach Bar — Kolympithres</div>
+          <div class="card-note">The most stylish beach club on Paros, positioned directly at Kolympithres beach near Parīlio. Granite rock formations form natural swimming coves around the sunbeds. Cocktails, a decent restaurant, and an atmosphere that's polished without being pretentious. 10 minutes from the hotel — the ideal afternoon anchor.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">🍸 Cocktails + sunbeds</div>
+            <div class="card-meta-item">📍 10 min from Parīlio</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-card" onclick="toggleCard(this)">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://images.unsplash.com/photo-1473496169904-658ba7574b3d?w=600&q=80" alt="Monastiri Beach Club">
+          <div class="card-code">J</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags"><span class="tag type-beach">Beach Club</span><span class="tag">Half Day</span></div>
+          <div class="card-name">Monastiri Beach Club</div>
+          <div class="card-note">Set in a protected natural bay within Paros Park — cliff-backed, calm water, paddleboard-perfect. The beach club restaurant serves fresh seafood and Mediterranean dishes. Quieter and more refined than Cabana — less scene, more experience. The rock formations and natural setting are outstanding.</div>
+          <div class="card-meta">
+            <div class="card-meta-item">🏖 Protected bay</div>
+            <div class="card-meta-item">🏄 Paddleboard available</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Paros Dining -->
+    <div style="margin-top:64px;">
+      <div class="section-header">
+        <div class="section-header-left">
+          <div class="section-eyebrow">Paros · Dining</div>
+          <h3 class="section-title" style="font-size:1.8rem;margin-bottom:0;">Where to Eat</h3>
+        </div>
+        <div class="section-header-right">8 restaurants · Michelin-verified</div>
+      </div>
+      <div class="cards-grid">
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Galazia Hytra Paros">
+            <div class="card-code">1</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="michelin-badge">★ Michelin</span><span class="price-level">€€€€€</span></div>
+            <div class="card-name">Galazia Hytra — Summer Senses</div>
+            <div class="card-note">The only Michelin-starred restaurant on Paros and the finest dining on the island. The Athens Hytra's summer outpost — same culinary philosophy, Aegean setting. Book 3–4 weeks in advance for August; this is the hardest reservation on Paros. Request a terrace table with sea view. Do not leave Paros without eating here.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">📅 Book 3–4 weeks ahead</div>
+              <div class="card-meta-item">🌊 Sea terrace</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1502301103665-0b95cc738daf?w=600&q=80" alt="Paron Parilio">
+            <div class="card-code">2</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag">In-Hotel</span><span class="tag">Top Notch 2025</span><span class="price-level">€€€€€</span></div>
+            <div class="card-name">Parōn — Parīlio Hotel</div>
+            <div class="card-note">Parīlio's in-house restaurant under Chef Thanos Feskos — awarded Top Notch 2025 for its bold, sustainability-forward approach. Eco-conscious ingredient sourcing, creative contemporary Greek cooking. The hotel itself is an Empiria Group property (same owners as Eréma) so expect consistent design and service standards throughout.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🏨 In-hotel</div>
+              <div class="card-meta-item">🌿 Sustainable-forward</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&q=80" alt="Barbarossa Naoussa">
+            <div class="card-code">3</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag">Iconic Seafood</span><span class="price-level">€€€€€</span></div>
+            <div class="card-name">Barbarossa — Naoussa</div>
+            <div class="card-note">Naoussa's most iconic dining institution. Refined Greek seafood — lobster pasta, raw bar, whole fish — on the harbor front with fishing boats tied up outside. Glamorous setting, impeccable service, and the kind of food that makes Paros' dining reputation. One of the most celebrated restaurants in the Cyclades.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🦞 Raw bar + lobster pasta</div>
+              <div class="card-meta-item">⚓ Naoussa harbor</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="Siparos Paros">
+            <div class="card-code">4</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag">Creative Greek</span><span class="price-level">€€€€</span></div>
+            <div class="card-name">Siparos — Naoussa</div>
+            <div class="card-note">Set directly by the sea — creative Greek cooking with a strong sense of place. A favorite for long lunches and elegant dinners. The approach here is more personal than Barbarossa — the cuisine feels more experimental, the atmosphere more intimate. Outstanding for a long, unhurried afternoon meal overlooking the water.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🌊 Seaside</div>
+              <div class="card-meta-item">🍽 Lunch or dinner</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=600&q=80" alt="RADA Naoussa">
+            <div class="card-code">5</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag">Gourmet</span><span class="tag">Sunset Views</span><span class="price-level">€€€€€</span></div>
+            <div class="card-name">RADA — Naoussa</div>
+            <div class="card-note">Chef Gikas Xenakis' acclaimed restaurant — inventive Mediterranean dishes with refreshing cocktails, open-air pavilion on the beach as the sun sets. The laid-back luxury of the setting combined with genuinely ambitious food makes RADA one of Paros' standout experiences. Reservations essential.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🌅 Beach + sunset</div>
+              <div class="card-meta-item">👨‍🍳 Chef Gikas Xenakis</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=600&q=80" alt="Nobu Paros">
+            <div class="card-code">6</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag">Gold Hat 2025</span><span class="tag">Luxury Fusion</span><span class="price-level">€€€€€</span></div>
+            <div class="card-name">Nobu — Avant Mar, Naoussa</div>
+            <div class="card-note">The Nobu brand's Paros outpost at the Avant Mar hotel, just outside Naoussa — Gold Hat award 2025. The signature Nobu format applied with Greek ingredient inflections: black cod miso, yellowtail jalapeño, fresh Aegean fish preparations. A departure from traditional Greek dining — exceptional if you want something different mid-trip.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🏆 Gold Hat 2025</div>
+              <div class="card-meta-item">🍣 Japanese-Greek fusion</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=80" alt="Maremma Paros">
+            <div class="card-code">7</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag">Italian</span><span class="tag">Above Kolympithres</span><span class="price-level">€€€€</span></div>
+            <div class="card-name">Maremma — Above Kolympithres</div>
+            <div class="card-note">Handmade pasta, truffle dishes, burrata, and Italian cooking that holds up by any international standard — positioned above Kolympithres beach near Parīlio. A genuine palette cleanser when Greek food has been consistent across Athens and Milos. The lunch option when you're close to the hotel and don't want to travel for a meal.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">🍝 Handmade pasta</div>
+              <div class="card-meta-item">📍 Near Parīlio</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-card" onclick="toggleCard(this)">
+          <div class="card-img-wrap">
+            <img class="card-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Mario Paros">
+            <div class="card-code">8</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag">Chef-Driven</span><span class="price-level">€€€€</span></div>
+            <div class="card-name">Mario — Naoussa</div>
+            <div class="card-note">Run by a well-known local chef and consistently cited as one of Paros' best restaurants by those who know the island. The food is personal and precise — not the grand Barbarossa experience, but more interesting and harder to get a table at. Excellent for a special dinner when the other top spots are booked.</div>
+            <div class="card-meta">
+              <div class="card-meta-item">📅 Book ahead</div>
+              <div class="card-meta-item">📍 Naoussa</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- DAY BUILDER -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="builder" class="day-builder-section">
+  <div class="day-builder-inner">
+    <div class="section-eyebrow">Interactive Planner</div>
+    <h2 class="section-title">Build Your <em>Days</em></h2>
+    <p style="font-size:0.85rem;color:rgba(255,255,255,0.45);margin-bottom:40px;line-height:1.6;">Select your preferred options for each time slot. Your selections generate a summary itinerary below.</p>
+
+    <div class="dest-tabs">
+      <button class="dest-tab active" onclick="showPanel('athens-panel', this)">Athens</button>
+      <button class="dest-tab" onclick="showPanel('milos-panel', this)">Milos</button>
+      <button class="dest-tab" onclick="showPanel('paros-panel', this)">Paros</button>
+    </div>
+
+    <!-- ATHENS DAYS -->
+    <div id="athens-panel" class="day-panel active">
+
+      <div class="day-header">
+        <div class="day-header-num">1</div>
+        <div class="day-header-info">
+          <div class="day-header-title">Athens — Day 1</div>
+          <div class="day-header-date">Saturday, August 22 · Arrive ATH ~9am from overnight flight</div>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Early AM</div><div class="slot-name">Arrival</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn chosen" onclick="selectBtn(this, 'atd1-arrival')"><span class="btn-code">—</span>Land ATH · Transfer Grande Bretagne · Check In</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Morning</div><div class="slot-name">Activity</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'atd1-am')"><span class="btn-code">A+B</span>Acropolis + Museum</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'atd1-am')"><span class="btn-code">N</span>Private Food Tour</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'atd1-am')"><span class="btn-code">C+G</span>Plaka + Anafiotika</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Lunch</div><div class="slot-name">Dining</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'atd1-lunch')"><span class="btn-code">7</span>Tzitzikas & Mermingas</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'atd1-lunch')"><span class="btn-code">4</span>GB Roof Garden</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Afternoon</div><div class="slot-name">Activity</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'atd1-pm')"><span class="btn-code">N/O</span>Private Food Tour</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'atd1-pm')"><span class="btn-code">C+G</span>Plaka + Anafiotika</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'atd1-pm')"><span class="btn-code">J</span>GB Roof Garden Drinks</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Sunset</div><div class="slot-name">Activity</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'atd1-sunset')"><span class="btn-code">H</span>Lycabettus Hill</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'atd1-sunset')"><span class="btn-code">J</span>GB Roof Garden</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'atd1-sunset')"><span class="btn-code">K</span>360 Cocktail Bar</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Dinner</div><div class="slot-name">Dining</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'atd1-dinner')"><span class="btn-code">1</span>Spondi ★★</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'atd1-dinner')"><span class="btn-code">2</span>Zillers ★</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'atd1-dinner')"><span class="btn-code">8</span>Klimataria</button>
+        </div>
+      </div>
+
+      <div class="day-separator"></div>
+
+      <div class="day-header">
+        <div class="day-header-num">2</div>
+        <div class="day-header-info">
+          <div class="day-header-title">Athens — Day 2</div>
+          <div class="day-header-date">Sunday, August 23 · Depart for Milos Monday AM</div>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Morning</div><div class="slot-name">Activity</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'atd2-am')"><span class="btn-code">D</span>Monastiraki + Flea Market</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'atd2-am')"><span class="btn-code">F</span>National Archaeological Museum</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'atd2-am')"><span class="btn-code">E</span>Ancient Agora</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Mid AM</div><div class="slot-name">Activity</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'atd2-midam')"><span class="btn-code">I</span>Syntagma Changing of Guard</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'atd2-midam')"><span class="btn-code">O</span>Street Food Tour</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Lunch</div><div class="slot-name">Dining</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'atd2-lunch')"><span class="btn-code">4</span>GB Roof Garden</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'atd2-lunch')"><span class="btn-code">5</span>Varoulko Seaside ★</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'atd2-lunch')"><span class="btn-code">7</span>Tzitzikas & Mermingas</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Afternoon</div><div class="slot-name">Day Drink</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'atd2-pm')"><span class="btn-code">K</span>360 Cocktail Bar</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'atd2-pm')"><span class="btn-code">L</span>Psyrri Bar Hop</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'atd2-pm')"><span class="btn-code">M</span>Clumsies + Baba au Rum</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'atd2-pm')"><span class="btn-code">J</span>GB Roof Garden</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Dinner</div><div class="slot-name">Dining</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'atd2-dinner')"><span class="btn-code">3</span>Galazia Hytra ★</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'atd2-dinner')"><span class="btn-code">6</span>Soil</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'atd2-dinner')"><span class="btn-code">8</span>Klimataria</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MILOS DAYS -->
+    <div id="milos-panel" class="day-panel">
+
+      <div class="day-header">
+        <div class="day-header-num">1</div>
+        <div class="day-header-info">
+          <div class="day-header-title">Milos — Day 1</div>
+          <div class="day-header-date">Monday, August 25 · Fly ATH → MLO AM · Check in Eréma</div>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Morning</div><div class="slot-name">Travel</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn chosen" onclick="selectBtn(this, 'mld1-arrival')"><span class="btn-code">—</span>Fly ATH → MLO · Transfer Eréma · Check In</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Afternoon</div><div class="slot-name">Activity</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'mld1-pm')"><span class="btn-code">—</span>Pool + Provatas Beach (Eréma · decompress)</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld1-pm')"><span class="btn-code">C</span>Sarakiniko (if arriving early enough)</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld1-pm')"><span class="btn-code">K</span>Catacombs + Amphitheater</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Sunset</div><div class="slot-name">Activity</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'mld1-sunset')"><span class="btn-code">E</span>Plaka Village + Castle</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld1-sunset')"><span class="btn-code">H</span>Prophet Elias Chapel</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld1-sunset')"><span class="btn-code">—</span>Eréma terrace at sunset</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Dinner</div><div class="slot-name">Dining</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'mld1-dinner')"><span class="btn-code">1</span>Sazón (Eréma in-hotel)</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld1-dinner')"><span class="btn-code">3</span>Aragosta</button>
+        </div>
+      </div>
+
+      <div class="day-separator"></div>
+
+      <div class="day-header">
+        <div class="day-header-num">2</div>
+        <div class="day-header-info">
+          <div class="day-header-title">Milos — Day 2</div>
+          <div class="day-header-date">Tuesday, August 26 · Full Day on the Water</div>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Dawn</div><div class="slot-name">Optional</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'mld2-dawn')"><span class="btn-code">C</span>Sarakiniko Sunrise (early risers)</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld2-dawn')"><span class="btn-code">—</span>Skip · Rest for boat day</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">All Day</div><div class="slot-name">Activity</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn chosen" onclick="selectBtn(this, 'mld2-main')"><span class="btn-code">A+B</span>Private Boat · Kleftiko + Sarakiniko + Poliegos</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Lunch</div><div class="slot-name">Dining</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'mld2-lunch')"><span class="btn-code">9</span>Eréma Picnic Basket on Boat</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld2-lunch')"><span class="btn-code">5</span>Medusa — Mandrakia (if docking nearby)</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Sunset</div><div class="slot-name">Activity</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'mld2-sunset')"><span class="btn-code">H</span>Prophet Elias Chapel</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld2-sunset')"><span class="btn-code">E</span>Plaka Castle</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld2-sunset')"><span class="btn-code">—</span>Back to Eréma · private pool</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Dinner</div><div class="slot-name">Dining</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'mld2-dinner')"><span class="btn-code">2</span>Ergina</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld2-dinner')"><span class="btn-code">3</span>Aragosta</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld2-dinner')"><span class="btn-code">6</span>O! Hamos</button>
+        </div>
+      </div>
+
+      <div class="day-separator"></div>
+
+      <div class="day-header">
+        <div class="day-header-num">3</div>
+        <div class="day-header-info">
+          <div class="day-header-title">Milos — Day 3</div>
+          <div class="day-header-date">Wednesday, August 27 · Villages + Culture</div>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Morning</div><div class="slot-name">Activity</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'mld3-am')"><span class="btn-code">L</span>Private Cooking Class</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld3-am')"><span class="btn-code">D</span>Fishermen Village Loop</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld3-am')"><span class="btn-code">I</span>Kimolos Full Day (replaces all below)</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Lunch</div><div class="slot-name">Dining</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'mld3-lunch')"><span class="btn-code">5</span>Medusa · Mandrakia waterfront</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld3-lunch')"><span class="btn-code">8</span>Cooking Class Lunch (if chose L)</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Afternoon</div><div class="slot-name">Activity</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'mld3-pm')"><span class="btn-code">F</span>ATV / Moped Island Loop</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld3-pm')"><span class="btn-code">J</span>Tsigrado Beach</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld3-pm')"><span class="btn-code">K</span>Catacombs + Amphitheater</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld3-pm')"><span class="btn-code">I</span>Kimolos Island</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Sunset</div><div class="slot-name">Activity</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'mld3-sunset')"><span class="btn-code">G</span>Kostantakis Cave Winery</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld3-sunset')"><span class="btn-code">E</span>Plaka Castle (if not done)</span></button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld3-sunset')"><span class="btn-code">H</span>Prophet Elias Chapel</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Dinner</div><div class="slot-name">Dining</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'mld3-dinner')"><span class="btn-code">4</span>Marrone de Milos</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld3-dinner')"><span class="btn-code">6</span>O! Hamos</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'mld3-dinner')"><span class="btn-code">7</span>Kalamitsi · Pollonia</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PAROS DAYS -->
+    <div id="paros-panel" class="day-panel">
+
+      <div class="day-header">
+        <div class="day-header-num">1</div>
+        <div class="day-header-info">
+          <div class="day-header-title">Paros — Day 1</div>
+          <div class="day-header-date">Thursday, August 28 · Ferry MLO → PAR ~2.5 hrs · Arrive Parīlio</div>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Morning</div><div class="slot-name">Travel</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn chosen" onclick="selectBtn(this, 'pd1-arrival')"><span class="btn-code">—</span>SeaJets Ferry MLO → Paros · Transfer Parīlio · Check In</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Afternoon</div><div class="slot-name">Activity</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'pd1-pm')"><span class="btn-code">B</span>Naoussa Town Wander</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'pd1-pm')"><span class="btn-code">C</span>Kolympithres Beach</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'pd1-pm')"><span class="btn-code">I</span>Cabana Beach Club</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Sunset</div><div class="slot-name">Activity</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'pd1-sunset')"><span class="btn-code">E</span>Agios Fokas / Livadia</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'pd1-sunset')"><span class="btn-code">B</span>Naoussa harbor at dusk</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Dinner</div><div class="slot-name">Dining</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'pd1-dinner')"><span class="btn-code">1</span>Galazia Hytra ★</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'pd1-dinner')"><span class="btn-code">3</span>Barbarossa</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'pd1-dinner')"><span class="btn-code">5</span>RADA</button>
+        </div>
+      </div>
+
+      <div class="day-separator"></div>
+
+      <div class="day-header">
+        <div class="day-header-num">2</div>
+        <div class="day-header-info">
+          <div class="day-header-title">Paros — Day 2</div>
+          <div class="day-header-date">Friday, August 29 · Full Day · Depart Saturday AM</div>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">All Day</div><div class="slot-name">Activity</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'pd2-am')"><span class="btn-code">A+D</span>Moped Loop · Naoussa → Lefkes → Parikia + Ekatontapiliani → Coast</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'pd2-am')"><span class="btn-code">G</span>Antiparos — Private Boat</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Lunch</div><div class="slot-name">Dining</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'pd2-lunch')"><span class="btn-code">7</span>Maremma · Kolympithres (on route)</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'pd2-lunch')"><span class="btn-code">4</span>Siparos · Naoussa</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Afternoon</div><div class="slot-name">Activity</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'pd2-pm')"><span class="btn-code">J</span>Monastiri Beach Club</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'pd2-pm')"><span class="btn-code">I</span>Cabana Beach Club</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'pd2-pm')"><span class="btn-code">F</span>Private Boat · Paros Coast</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Sunset</div><div class="slot-name">Activity</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'pd2-sunset')"><span class="btn-code">E</span>Livadia Beach</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'pd2-sunset')"><span class="btn-code">H</span>Lefkes Village (if not done on moped)</button>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-row-label"><div class="slot-time">Dinner</div><div class="slot-name">Dining</div></div>
+        <div class="day-row-options">
+          <button class="builder-btn" onclick="selectBtn(this, 'pd2-dinner')"><span class="btn-code">2</span>Parōn · Parīlio (in-hotel)</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'pd2-dinner')"><span class="btn-code">6</span>Nobu Paros</button>
+          <span class="or-divider">or</span>
+          <button class="builder-btn" onclick="selectBtn(this, 'pd2-dinner')"><span class="btn-code">8</span>Mario</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="summary-box">
+      <div class="summary-title">Your Selected Itinerary</div>
+      <ul class="summary-list" id="summary-list">
+        <li><span class="sum-day">—</span><span>No selections yet. Use the builder above to plan your days.</span></li>
+      </ul>
+      <button class="print-btn" onclick="window.print()">⊞ Print / Save Itinerary</button>
+    </div>
+
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- LOGISTICS -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="logistics" style="padding:80px 40px; max-width:1200px; margin:0 auto;">
+  <div class="section-eyebrow">Practical Guide</div>
+  <h2 class="section-title">Logistics + <em>Booking</em></h2>
+
+  <div class="logistics-grid">
+    <div class="logistics-card">
+      <h4>Flight Details</h4>
+      <div class="logistics-row"><div class="lk">Route</div><div class="lv">DFW → ATH nonstop · AA Flagship Business · Aug 21 evening</div></div>
+      <div class="logistics-row"><div class="lk">Return</div><div class="lv">ATH → DFW nonstop · Aug 29 morning (depart Paros very early or night before)</div></div>
+      <div class="logistics-row"><div class="lk">ATH → MLO</div><div class="lv">Sky Express or Olympic Air · ~45 min · Monday Aug 25 AM · Book 8–10 weeks out</div></div>
+      <div class="logistics-row"><div class="lk">MLO → PAR</div><div class="lv">SeaJets high-speed ferry · ~2.5 hrs · Thursday Aug 28 AM · Book well ahead</div></div>
+      <div class="logistics-row"><div class="lk">PAR → ATH</div><div class="lv">Sky Express or Olympic Air · 40 min · Saturday Aug 29 early AM</div></div>
+    </div>
+
+    <div class="logistics-card">
+      <h4>Hotel Booking — Amex FHR</h4>
+      <div class="logistics-row"><div class="lk">Grande Bretagne</div><div class="lv">FHR confirmed · Breakfast, $100 credit, upgrade, 4pm checkout</div></div>
+      <div class="logistics-row"><div class="lk">Eréma Milos</div><div class="lv">⚠️ Verify FHR status directly with Amex Concierge — new 2026 property, may not be catalogued yet</div></div>
+      <div class="logistics-row"><div class="lk">Parīlio</div><div class="lv">FHR confirmed · Same Empiria Group as Eréma · Breakfast, credit, upgrade</div></div>
+      <div class="logistics-row"><div class="lk">FHR Benefits</div><div class="lv">Daily breakfast (2 guests), ~$100 property credit, room upgrade, 4pm late checkout, early check-in when available</div></div>
+    </div>
+
+    <div class="logistics-card">
+      <h4>Dining Reservations — Book Now</h4>
+      <div class="logistics-row"><div class="lk">Spondi ★★</div><div class="lv">3–4 weeks ahead minimum · Athens · August fully books</div></div>
+      <div class="logistics-row"><div class="lk">Zillers ★</div><div class="lv">2–3 weeks · Request Acropolis view terrace seats explicitly</div></div>
+      <div class="logistics-row"><div class="lk">Galazia Hytra</div><div class="lv">3–4 weeks · Paros · Hardest reservation on island in August</div></div>
+      <div class="logistics-row"><div class="lk">O! Hamos</div><div class="lv">Book weeks in advance · Milos · Farm-to-table, seats limited</div></div>
+      <div class="logistics-row"><div class="lk">All Others</div><div class="lv">1–2 weeks lead time minimum in August peak for all top-tier restaurants</div></div>
+    </div>
+
+    <div class="logistics-card">
+      <h4>Experience Bookings</h4>
+      <div class="logistics-row"><div class="lk">Private Boat</div><div class="lv">Salty Rides (Milos) or equivalent · Full-day private charter · Book 3–4 weeks out for August</div></div>
+      <div class="logistics-row"><div class="lk">Cooking Class</div><div class="lv">Chef Vasilis (Milos) · Contact directly for private group of 4 · Mon–Fri Apr–Oct 2026</div></div>
+      <div class="logistics-row"><div class="lk">Food Tour</div><div class="lv">Athens private walking tour · Book via Viator or direct · Specify private for 4</div></div>
+      <div class="logistics-row"><div class="lk">Mopeds/ATVs</div><div class="lv">Available in Adamas (Milos) and Naoussa (Paros) · Reserve a day ahead in August</div></div>
+      <div class="logistics-row"><div class="lk">Picnic Basket</div><div class="lv">Request Eréma concierge at check-in · Chef-prepared from Sazón kitchen · Confirm boat day morning</div></div>
+    </div>
+  </div>
+
+  <!-- FLAGS -->
+  <div style="margin-top:40px;">
+    <div class="section-eyebrow" style="margin-bottom:16px;">Key Flags + Watch Items</div>
+    <div class="logistics-card">
+      <h4>Do Not Miss</h4>
+      <div class="flag-item"><div class="flag-dot"></div><div class="flag-text"><strong>Verify Eréma FHR status</strong> — call Amex Concierge before booking. New 2026 property may not be in the portal yet. Even if not FHR, negotiate equivalent benefits directly via concierge.</div></div>
+      <div class="flag-item"><div class="flag-dot"></div><div class="flag-text"><strong>Book Galazia Hytra Paros immediately</strong> — it is the hardest reservation on the island in August and books 3–4 weeks out minimum. Do this before anything else.</div></div>
+      <div class="flag-item"><div class="flag-dot"></div><div class="flag-text"><strong>Private boat only in Milos</strong> — group tours exist but undermine the experience. Salty Rides is the most-cited private charter operator. Book direct.</div></div>
+      <div class="flag-item"><div class="flag-dot"></div><div class="flag-text"><strong>Paros ferry timing</strong> — SeaJets MLO → PAR departs Adamas port, not Milos airport. Transfer from Eréma to port is ~20 min. Allow 45 min buffer for the ferry terminal.</div></div>
+      <div class="flag-item"><div class="flag-dot"></div><div class="flag-text"><strong>August heat</strong> — Acropolis is brutal after 10am in August. Any outdoor Athens activity should be AM. Islands are more manageable with sea breezes but bring reef-safe SPF.</div></div>
+      <div class="flag-item"><div class="flag-dot"></div><div class="flag-text"><strong>Greek dining times</strong> — dinner before 9pm puts you with tourists only. Greeks eat at 10pm. Adjust expectations accordingly — make reservations for 9pm and you'll be perfectly placed.</div></div>
+    </div>
+  </div>
+
+  <!-- BOOKING TIPS -->
+  <div style="margin-top:40px;">
+    <div class="section-eyebrow" style="margin-bottom:0;">Booking Priority</div>
+    <div class="tip-grid" style="margin-top:16px;">
+      <div class="tip-card">
+        <div class="tip-icon">✈️</div>
+        <div class="tip-title">Book Immediately</div>
+        <div class="tip-text"><strong>AA Flagship Business DFW → ATH</strong> for Aug 21. Seats in this cabin for a direct flight to Greece sell out months in advance. Book through Amex Travel to earn points. Also book ATH → MLO domestic flight — Sky Express fills in summer.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🍽</div>
+        <div class="tip-title">Restaurants This Week</div>
+        <div class="tip-text"><strong>Galazia Hytra Paros</strong> and <strong>Spondi Athens</strong> first. Then Zillers, Barbarossa, O! Hamos. For Milos restaurants — Sazón is your hotel so no booking needed; Ergina and O! Hamos need advance calls. Most restaurants require direct phone/email booking in Greek islands.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🛥</div>
+        <div class="tip-title">Experiences — 3–4 Weeks Out</div>
+        <div class="tip-text"><strong>Private boat charter Milos</strong> — Salty Rides or equivalent. Confirm full-day private (not shared). <strong>Cooking class</strong> with Chef Vasilis — contact directly for group rate. <strong>Athens food tour</strong> — any reputable private operator. Mopeds book 1 day before on island.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Greece 2026 — Private Dossier</div>
+  <div class="footer-text">Athens · Milos · Paros · August 21–29 · 4 Travellers · Amex FHR</div>
+  <div style="margin-top:20px;font-size:0.65rem;color:rgba(255,255,255,0.15);letter-spacing:0.1em;">Confidential Travel Document · All reservations subject to availability</div>
+</footer>
+
+<script>
+  // ── CARD TOGGLE ──
+  function toggleCard(card) {
+    card.classList.toggle('selected');
+    updateSummary();
+  }
+
+  // ── BUILDER BUTTON SELECTION ──
+  function selectBtn(btn, group) {
+    const parent = btn.closest('.day-row-options');
+    const allBtns = parent.querySelectorAll('.builder-btn');
+    allBtns.forEach(b => {
+      if (b !== btn) b.classList.remove('chosen');
+    });
+    btn.classList.toggle('chosen');
+    updateSummary();
+  }
+
+  // ── TAB SWITCHING ──
+  function showPanel(panelId, tab) {
+    document.querySelectorAll('.day-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.dest-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(panelId).classList.add('active');
+    tab.classList.add('active');
+  }
+
+  // ── SUMMARY GENERATOR ──
+  function updateSummary() {
+    const list = document.getElementById('summary-list');
+    const chosen = document.querySelectorAll('.builder-btn.chosen');
+    if (chosen.length === 0) {
+      list.innerHTML = '<li><span class="sum-day">—</span><span>No selections yet. Use the builder above to plan your days.</span></li>';
+      return;
+    }
+
+    const dayMap = {
+      'atd1': 'Athens D1',
+      'atd2': 'Athens D2',
+      'mld1': 'Milos D1',
+      'mld2': 'Milos D2',
+      'mld3': 'Milos D3',
+      'pd1':  'Paros D1',
+      'pd2':  'Paros D2',
+    };
+
+    const groups = {};
+    chosen.forEach(btn => {
+      const slotKey = btn.closest('.day-row-options').querySelector('.builder-btn.chosen');
+      const row = btn.closest('.day-row');
+      const slotTime = row.querySelector('.slot-time')?.textContent || '';
+      const slotName = row.querySelector('.slot-name')?.textContent || '';
+      const text = btn.textContent.trim();
+
+      // derive day from panel
+      const panel = btn.closest('.day-panel');
+      let dayKey = '—';
+      if (panel) {
+        const id = panel.id;
+        for (const [k, v] of Object.entries(dayMap)) {
+          if (id.startsWith(k.replace('1','').replace('2','').replace('3',''))) {
+            // find the right day header
+            const allHeaders = panel.querySelectorAll('.day-header');
+            allHeaders.forEach((hdr, i) => {
+              const dayRows = [];
+              let next = hdr.nextElementSibling;
+              while (next && !next.classList.contains('day-header') && !next.classList.contains('day-separator')) {
+                if (next.classList.contains('day-row')) dayRows.push(next);
+                next = next.nextElementSibling;
+              }
+              if (dayRows.includes(row)) {
+                const title = hdr.querySelector('.day-header-title')?.textContent || '';
+                dayKey = title;
+              }
+            });
+          }
+        }
+      }
+
+      if (!groups[dayKey]) groups[dayKey] = [];
+      groups[dayKey].push(`${slotTime} ${slotName}: ${text}`);
+    });
+
+    let html = '';
+    for (const [day, items] of Object.entries(groups)) {
+      items.forEach((item, i) => {
+        html += `<li><span class="sum-day">${i === 0 ? day : ''}</span><span>${item}</span></li>`;
+      });
+    }
+    list.innerHTML = html || '<li><span class="sum-day">—</span><span>No selections yet.</span></li>';
+  }
+
+  // ── PIN PULSE ANIMATION ──
+  const styleEl = document.createElement('style');
+  styleEl.textContent = `
+    @keyframes pinPulse {
+      0% { transform: scale(0.8); opacity: 0.8; }
+      70% { transform: scale(1.6); opacity: 0; }
+      100% { transform: scale(0.8); opacity: 0; }
+    }
+  `;
+  document.head.appendChild(styleEl);
+
+  // ── MAP LOCATION SELECTION ──
+  let activeLocation = null;
+
+  function selectLocation(loc) {
+    // Update pins
+    document.querySelectorAll('.map-pin').forEach(p => p.classList.remove('active'));
+    const pin = document.getElementById('pin-' + loc);
+    if (pin) pin.classList.add('active');
+
+    // Update sidebar cards
+    document.querySelectorAll('.map-card').forEach(c => c.classList.remove('active'));
+    const card = document.getElementById('mapcard-' + loc);
+    if (card) {
+      card.classList.add('active');
+      // Scroll card into view in sidebar
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // Show detail panel
+    document.querySelectorAll('.detail-content').forEach(d => d.style.display = 'none');
+    const detail = document.getElementById('detail-' + loc);
+    const panel = document.getElementById('location-detail');
+
+    if (activeLocation === loc && panel.classList.contains('visible')) {
+      // Toggle off if same location clicked again
+      closeDetail();
+      return;
+    }
+
+    activeLocation = loc;
+    if (detail && panel) {
+      panel.classList.add('visible');
+      detail.style.display = 'block';
+      // Smooth scroll to detail panel
+      setTimeout(() => {
+        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  }
+
+  function closeDetail() {
+    const panel = document.getElementById('location-detail');
+    if (panel) panel.classList.remove('visible');
+    document.querySelectorAll('.detail-content').forEach(d => d.style.display = 'none');
+    document.querySelectorAll('.map-pin').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.map-card').forEach(c => c.classList.remove('active'));
+    activeLocation = null;
+    // Scroll back to map
+    const mapSection = document.getElementById('map');
+    if (mapSection) {
+      setTimeout(() => {
+        const offset = 70;
+        const pos = mapSection.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ behavior: 'smooth', top: pos });
+      }, 50);
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    const hero = document.querySelector('.hero-bg');
+    if (hero) {
+      const scrolled = window.pageYOffset;
+      hero.style.transform = `scale(1.05) translateY(${scrolled * 0.3}px)`;
+    }
+  });
+
+  // ── SMOOTH SCROLL FOR NAV ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = 70;
+        const pos = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: pos, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ── CARD FADE-IN ON SCROLL ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.option-card, .logistics-card, .tip-card').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(16px)';
+    card.style.transition = 'opacity 0.4s ease, transform 0.4s ease, border-color 0.25s, background 0.25s';
+    observer.observe(card);
+  });
+</script>
+</body>
+</html>
